@@ -1,0 +1,10 @@
+{
+    "title": "Jovan",
+    "hello": "Hi, I'm Jovan",
+    "navs": {
+        "/": "Home",
+        "/product": "Product",
+        "/sponsor": "Sponsor",
+        "/about": "About"
+    }
+}

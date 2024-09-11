@@ -1,0 +1,12 @@
+services:
+  app:
+    container_name: github.io
+    image: node:latest
+    restart: unless-stopped
+    working_dir: /app
+    tty: true
+    entrypoint: bash ./entrypoint.sh
+    volumes:
+      - ./:/app
+    ports:
+      - 10100:3000
