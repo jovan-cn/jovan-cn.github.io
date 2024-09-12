@@ -1,10 +1,9 @@
-import { useTranslations } from "next-intl";
 import data from "@/app/data/product.json"
+import { TProduct } from "@/app/types";
 import classNames from "classnames";
 
 
 const Product: React.FC = () => {
-  const t = useTranslations()
 
   return (
     <section className="flex flex-col items-center p-8">

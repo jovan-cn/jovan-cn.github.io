@@ -19,19 +19,6 @@ const ThemeButton: React.FC = () => {
 	}, [])
 
 	useEffect(() => {
-		refreshTheme()
-	}, [theme])
-
-	const changeTheme = () => {
-		if (theme === Theme.os) {
-			setTheme(Theme.dark)
-		} else if (theme === Theme.dark) {
-			setTheme(Theme.light)
-		} else {
-			setTheme(Theme.os)
-		}
-	}
-	const refreshTheme = () => {
 		localStorage.theme = theme
 		if (theme === Theme.dark) {
 			document.documentElement.classList.add('dark')
@@ -43,6 +30,17 @@ const ThemeButton: React.FC = () => {
 			} else {
 				document.documentElement.classList.remove('dark');
 			}
+		}
+
+	}, [theme])
+
+	const changeTheme = () => {
+		if (theme === Theme.os) {
+			setTheme(Theme.dark)
+		} else if (theme === Theme.dark) {
+			setTheme(Theme.light)
+		} else {
+			setTheme(Theme.os)
 		}
 	}
 
