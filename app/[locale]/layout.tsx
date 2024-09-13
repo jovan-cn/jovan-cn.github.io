@@ -3,7 +3,7 @@ import Header from "@/app/components/header";
 import Footer from "@/app/components/footer";
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages, getTranslations, unstable_setRequestLocale} from 'next-intl/server';
-import {redirect, routing} from '@/app/i18n/routing';
+import {routing} from '@/app/i18n/routing';
 import classNames from "classnames";
 
 
@@ -16,7 +16,6 @@ export default async function RootLayout({
   params: {locale: string};
 }>) {
   unstable_setRequestLocale(locale)
-  redirect('/en');
 
   const messages = await getMessages();
 
