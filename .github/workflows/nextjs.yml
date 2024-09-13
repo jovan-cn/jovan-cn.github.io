@@ -79,6 +79,7 @@ jobs:
         env:
           INPUT_PATH: ./out
         run: |
+          cd out || exit 1
           if [ -f "index.html" ]; then
             exit 0
           elif [ -f "en.html" ]; then
