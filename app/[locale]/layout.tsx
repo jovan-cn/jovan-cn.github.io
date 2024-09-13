@@ -2,7 +2,7 @@ import "@/app/styles/globals.css"
 import Header from "@/app/components/header";
 import Footer from "@/app/components/footer";
 import {NextIntlClientProvider} from 'next-intl';
-import {getMessages, getTranslations} from 'next-intl/server';
+import {getMessages, getTranslations, unstable_setRequestLocale} from 'next-intl/server';
 import {routing} from '@/app/i18n/routing';
 import classNames from "classnames";
 
@@ -15,7 +15,7 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: {locale: string};
 }>) {
-
+  unstable_setRequestLocale(locale)
   const messages = await getMessages();
 
   return (
