@@ -12,12 +12,15 @@ const navs: string[] = [
 ]
 
 
-const Navs: React.FC = () => {
+const Navbar: React.FC = () => {
   const t = useTranslations('navs')
   const pathname = usePathname()
 
   return (
-    <nav className={"block flex flex-row gap-3"}>
+    <nav className={classNames(
+      'flex flex-row justify-start items-center gap-3 ',
+      'w-48 overflow-x-scroll no-scrollbar'
+    ) }>
       {navs.map((n: string, i: number) => {
         return (
           <Link key={i} href={n} className={classNames(
@@ -32,4 +35,4 @@ const Navs: React.FC = () => {
   )
 }
 
-export default Navs;
+export default Navbar;
