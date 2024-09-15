@@ -1,14 +1,15 @@
 import createNextIntlPlugin from 'next-intl/plugin';
 
 const withNextIntl = createNextIntlPlugin(
-  "app/i18n/request.ts", 
+  "./app/i18n/request.ts", 
 );
 
 /** @type {import('next').NextConfig} */
+const dev = process.env.NODE_ENV !== "production";
 const nextConfig = {
-  output:  process.env.NODE_ENV !== "production" ? undefined: "export", 
+  output: dev ? undefined: "export", 
   images: {
-    unoptimized: process.env.NODE_ENV !== "production" ? false : true,
+    unoptimized: dev ? false : true,
   },
 };
 
