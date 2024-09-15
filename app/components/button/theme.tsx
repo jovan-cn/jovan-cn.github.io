@@ -1,54 +1,30 @@
 'use client'
-
 import React, { useEffect, useState } from "react"
-import { PiMonitorBold  ,  PiSunFill, PiMoonFill } from "react-icons/pi";
+import { PiMonitorBold,  PiSunFill, PiMoonFill } from "react-icons/pi";
+import { Theme, toggleTheme, updateTheme } from "@/app/util/theme"
 import { button_style } from ".";
 
 
-enum Theme {
-	light = 'light',
-	dark  = 'dark',
-	os    = 'os',
-}
-
 const ThemeButton: React.FC = () => {
-	const [theme, setTheme] = useState<Theme>(Theme.os)
+	const [theme, setTheme] = useState<Theme>()
 
 	useEffect(() => {
-		setTheme(localStorage.theme)
+		if (localStorage.theme !== undefined) {
+			setTheme(localStorage.theme)
+		}
+		updateTheme()
 	}, [])
 
-	useEffect(() => {
-		localStorage.theme = theme
-		if (theme === Theme.dark) {
-			document.documentElement.classList.add('dark')
-		} else if (theme === Theme.light) {
-			document.documentElement.classList.remove('dark')
-		} else {
-			if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-				document.documentElement.classList.add('dark');
-			} else {
-				document.documentElement.classList.remove('dark');
-			}
-		}
-
-	}, [theme])
-
 	const changeTheme = () => {
-		if (theme === Theme.os) {
-			setTheme(Theme.dark)
-		} else if (theme === Theme.dark) {
-			setTheme(Theme.light)
-		} else {
-			setTheme(Theme.os)
-		}
+		const newTheme = toggleTheme()
+		setTheme(newTheme)
 	}
 
 	return (
 		<button className={`${button_style}`} onClick={changeTheme}>
-			{ theme === Theme.os   ? <PiMonitorBold />
-			: theme === Theme.dark ? <PiMoonFill /> 
-														 : <PiSunFill /> 
+			{ theme === Theme.light ? <PiSunFill />
+			: theme === Theme.dark  ? <PiMoonFill /> 
+													: <PiMonitorBold />
 			}
 		</button>
 	)
