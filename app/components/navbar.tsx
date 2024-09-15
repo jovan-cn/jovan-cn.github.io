@@ -18,8 +18,8 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className={classNames(
-      'flex flex-row justify-start items-center gap-3 ',
-      'w-48 overflow-x-scroll no-scrollbar'
+      'flex flex-row justify-end items-center gap-3',
+      'w-48 sm:w-4/5 overflow-x-scroll no-scrollbar'
     ) }>
       {navs.map((n: string, i: number) => {
         return (
