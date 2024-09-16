@@ -12,7 +12,7 @@ import classNames from "classnames";
 
 
 
-export default async function RootLayout({
+export default async function LocaleLayout({
   children,
   params: {locale}
 }: Readonly<{
@@ -20,29 +20,19 @@ export default async function RootLayout({
   params: {locale: string};
 }>) {
   unstable_setRequestLocale(locale)
-
   const messages = await getMessages();
 
   return (
-    <html  lang={locale}>
-      <body className={`
-        bg-white dark:bg-slate-900
-        text-slate-800 dark:text-slate-400
-        flex flex-col justify-start items-center 
-        min-h-screen
-      `}>
-        <NextIntlClientProvider messages={messages}>
-          <Header />
-          <main className={classNames(
-            "flex justify-center items-center",
-            "lg:w-3/5 w-full p-4 mb-auto",
-          )} >
-            {children}
-          </main>
-          <Footer />
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <NextIntlClientProvider messages={messages}>
+      <Header />
+      <main className={classNames(
+        "flex justify-center items-center",
+        "lg:w-3/5 w-full p-4 mb-auto",
+      )} >
+        {children}
+      </main>
+      <Footer />
+    </NextIntlClientProvider>
   );
 }
 
