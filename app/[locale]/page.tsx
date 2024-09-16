@@ -10,7 +10,7 @@ export default function Home({
   const t  = useTranslations()
 
   return (
-    <section className="">
+    <section className="min-h-96 flex place-items-center">
       {t('hello')} 
     </section>
   );

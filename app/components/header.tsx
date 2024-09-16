@@ -13,7 +13,7 @@ const Header: React.FC = () => {
     <header className={classNames(
       'h-12 flex flex-row justify-between items-center',
       'whitespace-nowrap',
-      'w-full lg:w-2/5 sm:w-3/5 px-4 sm:px-0',
+      'w-full sm:w-3/5 px-4 sm:px-0',
       'text-sm',
     )}>
       <div className="font-bold">
