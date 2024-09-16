@@ -2,7 +2,7 @@
   "common": [
     {
       "name": "Gym-Calendar",
-      "icon": "",
+      "icon": "https://jovan-cn.github.io/gym-calendar/favicon.svg",
       "desc": "A calendar visualize my gym data",
       "host": "https://jovan-cn.github.io/gym-calendar"
     }
