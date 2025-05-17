@@ -1,0 +1,17 @@
+services:
+  website:
+    container_name: jovan-homepage
+    image: node:latest
+    tty: true
+    working_dir: /app
+    restart: unless-stopped
+    entrypoint: npm run dev
+    #entrypoint: bash
+    environment:
+      - NPM_CONFIG_RESITRY=https://registry.npmmirror.com
+      - TZ=Asia/Shanghai
+      #- NEXT_PUBLIC_BASE_URL=/
+    ports:
+      - 10102:3000
+    volumes:
+      - ../:/app

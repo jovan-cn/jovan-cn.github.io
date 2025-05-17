@@ -1,0 +1,27 @@
+[
+  {
+    "label": "首页",
+    "icon": "MdHome",
+    "to": "/"
+  },
+  {
+    "label": "项目",
+    "icon": "AiFillGithub",
+    "to": "/repository"
+  },
+  {
+    "label": "阅读",
+    "icon": "GiBookshelf",
+    "to": "/article"
+  },
+  {
+    "label": "教程",
+    "icon": "IoHammerOutline",
+    "to": "/tutorial"
+  },
+  {
+    "label": "作品",
+    "icon": "GiCampfire",
+    "to": "/portfolio"
+  }
+]
