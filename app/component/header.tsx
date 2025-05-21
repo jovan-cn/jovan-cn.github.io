@@ -3,17 +3,23 @@ import JAvatar from "./avatar";
 import { Navbar } from "./navbar";
 import NavButton from "./navbutton";
 import ThemeToggle from "./theme-button";
+import SearchBar from "./searchbar";
+import { ReactNode } from "react";
+import SidebarButton from "./sidebar";
 
 
-export default function Header() {
+export default function Header({
+  children
+} : {
+  children?: ReactNode
+}) {
 
   return (
     <header className={clsx(
       "sticky left-0 top-0 w-screen z-10",
       "flex items-center justify-center",
-      "opacity-90",
-      "border-b-1 border-gray-200 dark:border-gray-800",
-      "backdrop-blur-sm",
+      "opacity-90 backdrop-blur-md",
+      "border-b",
     )}>
       <div className={clsx(
         "h-12 px-4 lg:w-3/5 w-full",
@@ -22,12 +28,16 @@ export default function Header() {
         <div className="flex flex-row gap-2 items-center">
           <div className="hidden md:block"><JAvatar /></div>
           <div className="block md:hidden"><NavButton /></div>
-          <h3>Jovan</h3>
+          <SearchBar />
         </div>
 
         <Navbar />
 
-        <ThemeToggle />
+        <div className="flex flex-row items-center gap-1">
+          <ThemeToggle />
+          {children && <SidebarButton> {children} </SidebarButton> }
+            
+        </div>
       </div>
     </header>
   )

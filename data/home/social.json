@@ -1,0 +1,12 @@
+[
+  {
+    "label": "Github",
+    "icon": "VscGithubAlt",
+    "value": "https://github.com/jovan-cn/jovan-cn.github.io"
+  },
+  {
+    "label": "邮箱",
+    "icon": "TfiEmail",
+    "value": "mailto:jovan.cn@outlook.com"
+  }
+]

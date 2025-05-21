@@ -4,7 +4,6 @@ import { extendTheme } from "@mui/joy";
 import { ColorSystemOptions } from "@mui/joy/styles/extendTheme";
 
 const tailwindColors = {
-  // 青色
   teal: {
     50: "#f0fdfa",
     100: "#ccfbf1",
@@ -17,7 +16,6 @@ const tailwindColors = {
     800: "#115e59",
     900: "#134e4a"
   },
-  // 蓝色
   blue: {
     50: "#eff6ff",
     100: "#dbeafe",
@@ -30,7 +28,6 @@ const tailwindColors = {
     800: "#1e40af",
     900: "#1e3a8a"
   },
-  // 红色
   red: {
     50: "#fef2f2",
     100: "#fee2e2",
@@ -43,7 +40,6 @@ const tailwindColors = {
     800: "#991b1b",
     900: "#7f1d1d"
   },
-  // 绿色
   green: {
     50: "#f0fdf4",
     100: "#dcfce7",
@@ -56,7 +52,6 @@ const tailwindColors = {
     800: "#166534",
     900: "#14532d"
   },
-  // 黄色
   yellow: {
     50: "#fefce8",
     100: "#fef9c3",
@@ -69,7 +64,6 @@ const tailwindColors = {
     800: "#854d0e",
     900: "#713f12"
   },
-  // 紫色
   purple: {
     50: "#faf5ff",
     100: "#f3e8ff",
@@ -82,7 +76,6 @@ const tailwindColors = {
     800: "#6b21a8",
     900: "#581c87"
   },
-  // 粉色
   pink: {
     50: "#fdf2f8",
     100: "#fce7f3",
@@ -95,7 +88,6 @@ const tailwindColors = {
     800: "#9d174d",
     900: "#831843"
   },
-  // 灰色
   gray: {
     50: "#f9fafb",
     100: "#f3f4f6",
@@ -108,7 +100,30 @@ const tailwindColors = {
     800: "#1f2937",
     900: "#111827"
   },
-  // 橙色
+  slate: {
+    50: "#f8fafc",
+    100: "#f1f5f9",
+    200: "#e2e8f0",
+    300: "#cbd5e1",
+    400: "#94a3b8",
+    500: "#64748b",
+    600: "#475569",
+    700: "#334155",
+    800: "#1e293b",
+    900: "#0f172a"
+  },
+  zinc: {
+    50: "#fafafa",
+    100: "#f4f4f5",
+    200: "#e4e4e7",
+    300: "#d4d4d8",
+    400: "#a1a1aa",
+    500: "#71717a",
+    600: "#52525b",
+    700: "#3f3f46",
+    800: "#27272a",
+    900: "#18181b"
+  },
   orange: {
     50: "#fff7ed",
     100: "#ffedd5",
@@ -121,7 +136,6 @@ const tailwindColors = {
     800: "#9a3412",
     900: "#7c2d12"
   },
-  // 青蓝色
   cyan: {
     50: "#ecfeff",
     100: "#cffafe",
@@ -136,24 +150,40 @@ const tailwindColors = {
   }
 };
 
-const createColorSchemes = (name: keyof typeof tailwindColors): ColorSystemOptions => {
+const twcolor = (
+  name: keyof typeof tailwindColors,
+  level: 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900,
+) => {
+  return tailwindColors[name][level];
+}
+
+const createColorSchemes = (
+  name: keyof typeof tailwindColors,
+  mode: string,
+): ColorSystemOptions => {
   const colors = tailwindColors[name];
+  const isLight = mode === 'light';
   return {
     palette: {
       primary: {
         ...colors,
       },
+      background: {
+        body: isLight ? twcolor('zinc', 100) : twcolor('slate', 800),
+        surface: twcolor('slate', isLight ? 200 : 900),
+      },
       text: {
-        primary: colors[500],
-      }
+        secondary: twcolor('zinc', isLight ? 800 : 400),
+      },
+      focusVisible: twcolor('gray', isLight ? 300 : 700),
     }
   }
 }
 
 const theme = extendTheme({
   colorSchemes: {
-    light: createColorSchemes("teal"),
-    dark: createColorSchemes("teal"),
+    light: createColorSchemes("blue", 'light'),
+    dark: createColorSchemes("slate", 'dark'),
   },
   components: {
     JoyButton: {
@@ -165,8 +195,16 @@ const theme = extendTheme({
     JoyInput: {
       defaultProps: {
         size: "sm",
+        variant: 'soft',
       },
       styleOverrides: {
+        root: ({ theme }) => ({
+          backgroundColor: theme.palette.background.surface,
+          // "--_Input-focusedHighlight": twcolor('gray', 300),   /* focusVisible for global */
+          // [theme.getColorSchemeSelector('dark')]: {
+          //   "--_Input-focusedHighlight": twcolor('gray', 700),
+          // }
+        })
       }
     },
     JoyTooltip: {
@@ -195,17 +233,37 @@ const theme = extendTheme({
     JoyChip: {
       defaultProps: {
         size: "sm",
+        variant: 'outlined',
       },
       styleOverrides: {
-        root: ({ ownerState }) => ({
-          fontSize: ownerState.size === 'sm' ? '0.5rem' : '0.875rem',
-          paddingLeft: '6px',
-          paddingRight: '6px',
-          paddingTop: '0px',
-          paddingBottom: '0px',
+        root: ({ ownerState, theme }) => ({
+          backgroundColor: twcolor('zinc', 100),
+          color: twcolor('gray', 800),
+          fontSize: ownerState.size === 'sm' ? '0.575rem' : '0.625rem',
+          [theme.getColorSchemeSelector('dark')]: {
+            backgroundColor: twcolor('slate', 900),
+            color: twcolor('gray', 400)
+          },
         })
       }
-    }
+    },
+    JoyDrawer: {
+      defaultProps: {
+        size: "md",
+        variant: 'plain',
+      },
+      styleOverrides: {
+        content: ({ ownerState, theme }) => ({
+          backgroundColor: theme.palette.background.body,
+          width: {
+            sm: 180,
+            md: 210,
+            lg: 240,
+          }[ownerState.size || 'md'],
+          transition: "width 0.3s ease, transform 0.3s ease",
+        }),
+      },
+    },
   },
 });
 

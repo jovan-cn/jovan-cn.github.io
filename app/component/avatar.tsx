@@ -1,13 +1,15 @@
+import meta from "@/data/system/meta.json"
+import { Avatar } from "@mui/joy"
 
-export default function JAvatar() {
-  const github_avatar =  "https://avatars.githubusercontent.com/u/181050559?v=4&size=40"
+export default async function JAvatar() {
   return (
     <div className="group">
-      <img
-        src={github_avatar}
-        alt="旋转图片"
+      <Avatar
+        variant="outlined"
+        src={meta.avatar}
+        alt="logo"
         className="w-8 h-8 object-cover rounded-full 
-           group-hover:animate-[spin_1s_linear_infinite]"
+           group-hover:animate-[spin-reverse_1s_linear_infinite] "
       />
     </div>
   )

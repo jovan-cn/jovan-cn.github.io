@@ -13,10 +13,6 @@ export default function NavButton() {
       <RiMenuFold2Fill />
     </IconButton>
     <Drawer
-      sx={{
-        '--Drawer-horizontalSize': '180px',
-        width: '180px', // backup
-      }}
       open={showNavSidebar}
       onClose={() => setShowNavSidebar(false)}
     >

@@ -10,7 +10,7 @@
     "to": "/repository"
   },
   {
-    "label": "阅读",
+    "label": "文章",
     "icon": "GiBookshelf",
     "to": "/article"
   },
