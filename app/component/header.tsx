@@ -6,6 +6,7 @@ import ThemeToggle from "./theme-button";
 import SearchBar from "./searchbar";
 import { ReactNode } from "react";
 import SidebarButton from "./sidebar";
+import NextTopLoader from "nextjs-toploader";
 
 
 export default function Header({
@@ -39,6 +40,10 @@ export default function Header({
             
         </div>
       </div>
+      <NextTopLoader
+        showSpinner={false} 
+        color="#0f766e"
+        />
     </header>
   )
 }
