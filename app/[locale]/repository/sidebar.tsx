@@ -1,8 +1,11 @@
 import clsx from "clsx";
 import { getAllRepository } from "@/app/lib/data"
+import { getTranslations } from 'next-intl/server';
+
 
 export default async function RepositorySidebar() {
   const repos = await getAllRepository();
+  const t = await getTranslations('repository');
 
   /* FIX: chinese & english & number baseline are different */
   return (
@@ -10,9 +13,9 @@ export default async function RepositorySidebar() {
       "w-40 flex flex-col justify-center gap-2",
       "circled p-2",
     )}>
-      <h3>统计信息</h3>
+      <h3>{t('sidebar.title')}</h3>
       <div>
-        共 <span className="text-2xl text-red-500 align-[-2px]">{repos.length}</span> 个仓库
+        {t('sidebar.count', {count: repos.length})}
       </div>
     </aside>
   )

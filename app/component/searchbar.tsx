@@ -1,19 +1,21 @@
 'use client'
 
 import { IconButton, Input } from "@mui/joy"
-import { useSearchBarStore } from "../store/useSearch"
+import { useSearchBarStore } from "@/app/store/useSearch"
+import { useTranslations } from 'next-intl';
 import { ChangeEvent, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { MdClose, MdSearch } from "react-icons/md";
 
 export default function SearchBar() {
-  const { 
+  const {
     searchContent,
     setSearchContent,
     searchPath,
     setSearchPath,
   } = useSearchBarStore();
   const path = usePathname();
+  const t = useTranslations("searchbar");
   const [mounted, setMounted] = useState<boolean>(false);
 
   useEffect(() => {
@@ -60,7 +62,7 @@ export default function SearchBar() {
           <MdClose className="icon" />
         </IconButton>
       }
-      placeholder="页内检索"
+      placeholder={t("placeholder")}
     />
   )
 }

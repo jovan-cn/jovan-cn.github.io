@@ -1,0 +1,18 @@
+{
+  "navitem": {
+    "home": "首页",
+    "repository": "项目",
+    "article": "文章",
+    "tutorial": "教程",
+    "portfolio": "作品"
+  },
+  "searchbar": {
+    "placeholder": "页内检索"
+  },
+  "repository": {
+    "sidebar": {
+      "title": "统计信息",
+      "count": "共 {count} 个仓库"
+    }
+  }
+}

@@ -1,26 +1,26 @@
 [
   {
-    "label": "首页",
+    "label": "home",
     "icon": "MdHome",
     "to": "/"
   },
   {
-    "label": "项目",
+    "label": "repository",
     "icon": "AiFillGithub",
     "to": "/repository"
   },
   {
-    "label": "文章",
+    "label": "article",
     "icon": "GiBookshelf",
     "to": "/article"
   },
   {
-    "label": "教程",
+    "label": "tutorial",
     "icon": "IoHammerOutline",
     "to": "/tutorial"
   },
   {
-    "label": "作品",
+    "label": "portfolio",
     "icon": "GiCampfire",
     "to": "/portfolio"
   }

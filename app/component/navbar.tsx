@@ -17,10 +17,12 @@ export function Navbar() {
 export function MobileNavbar() {
   return (
     <nav className={clsx(
-      "md:hidden flex flex-col justify-center items-center w-full gap-4",
+      "md:hidden flex flex-col justify-center items-start w-full gap-2",
     )}>
       {entries.map((entry: INavItem, i: number) => (
-        <NavItem key={i} item={entry} />
+        <div key={i} className="h-8 w-full my-2">
+          <NavItem item={entry} />
+        </div>
       ))}
     </nav>
   )

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from "next/link";
+import { useTranslations } from 'next-intl';
 import ReactIcons from "@/app/lib/icons";
 import clsx from "clsx";
 import { usePathname } from "next/navigation";
@@ -14,6 +15,8 @@ export default function NavItem({
 }) {
   const path = usePathname();
   const Icon = ReactIcons(item.icon);
+  const t = useTranslations('navitem');
+
 
   const isNavHighlight = (path: string, to: string) => {
     return (
@@ -29,7 +32,7 @@ export default function NavItem({
       isNavHighlight(path, item.to) && "text-teal-700 dark:text-teal-500",
     )}>
       {Icon && <Icon className="icon" />}
-      <span>{item.label}</span>
+      <span>{t(item.label)}</span>
 
       {/* underline */}
       <div className={clsx(

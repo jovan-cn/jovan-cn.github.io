@@ -1,0 +1,18 @@
+{
+  "navitem": {
+    "home": "home",
+    "repository": "repository",
+    "article": "article",
+    "tutorial": "tutorial",
+    "portfolio": "portfolio"
+  },
+  "searchbar": {
+    "placeholder": "search in page"
+  },
+  "repository": {
+    "sidebar": {
+      "title": "Statistic",
+      "count": "Total {count} repositories"
+    }
+  }
+}
