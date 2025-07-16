@@ -4,8 +4,8 @@ import Link from "next/link";
 import { useTranslations } from 'next-intl';
 import ReactIcons from "@/app/lib/icons";
 import clsx from "clsx";
-import { usePathname } from "next/navigation";
 import { INavItem } from "@/app/types";
+import { usePathname } from "@/i18n/navigation";
 
 
 export default function NavItem({
