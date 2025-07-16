@@ -9,6 +9,9 @@
   "searchbar": {
     "placeholder": "页内检索"
   },
+  "language-button": {
+    "label": "中"
+  },
   "repository": {
     "sidebar": {
       "title": "统计信息",

@@ -32,14 +32,14 @@ export default function ThemeToggle() {
   if (!mounted) {
     // SSR 
     return (
-      <IconButton variant="plain" disabled>
+      <IconButton disabled>
         <MdLightMode />
       </IconButton>
     );
   }
 
   return (
-    <IconButton onClick={toggleMode} variant="plain">
+    <IconButton onClick={toggleMode} >
       { mode === 'dark' ? <MdDarkMode /> : <MdLightMode />}
     </IconButton>
   );

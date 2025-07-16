@@ -32,7 +32,6 @@ function QA({data} : {data: IFAQ}) {
       sx={{ my: 1, padding: 0 }}
       startAction={
         <IconButton
-          variant="plain"
           size="sm"
           onClick={() => setOpen((bool) => !bool)}
         >

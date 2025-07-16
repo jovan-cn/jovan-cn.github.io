@@ -9,6 +9,9 @@
   "searchbar": {
     "placeholder": "search in page"
   },
+  "language-button": {
+    "label": "EN"
+  },
   "repository": {
     "sidebar": {
       "title": "Statistic",

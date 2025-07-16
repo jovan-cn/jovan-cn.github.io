@@ -264,6 +264,11 @@ const theme = extendTheme({
         }),
       },
     },
+    JoyIconButton: {
+      defaultProps: {
+        variant: 'plain',
+      },
+    }
   },
 });
 

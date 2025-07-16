@@ -7,6 +7,7 @@ import SearchBar from "./searchbar";
 import { ReactNode } from "react";
 import SidebarButton from "./sidebar";
 import NextTopLoader from "nextjs-toploader";
+import LanguageToggle from "./button/language";
 
 
 export default function Header({
@@ -36,6 +37,7 @@ export default function Header({
 
         <div className="flex flex-row items-center gap-1">
           <ThemeToggle />
+          <LanguageToggle />
           {children && <SidebarButton> {children} </SidebarButton> }
             
         </div>

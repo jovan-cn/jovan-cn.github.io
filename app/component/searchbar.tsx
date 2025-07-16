@@ -54,7 +54,6 @@ export default function SearchBar() {
       startDecorator={<MdSearch />}
       endDecorator={
         <IconButton
-          variant="plain"
           className={"!rounded-full"}
           disabled={searchContent.length === 0}
           onClick={() => setSearchContent("")}
