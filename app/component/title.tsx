@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import BackButton from "./back-button";
+import BackButton from "./button/back";
 
 
 export default function Title({

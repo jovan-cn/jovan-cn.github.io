@@ -17,5 +17,11 @@
       "title": "统计信息",
       "count": "共 {count} 个仓库"
     }
+  },
+  "article": {
+    "sidebar": {
+      "title": "统计信息",
+      "count": "共 {count} 篇文章"
+    }
   }
 }

@@ -1,10 +1,10 @@
 'use client'
 import { RiMenuFold2Fill } from "react-icons/ri";
-import { useNavSidebarStore } from "../store/useNavButton"
+import { useNavSidebarStore } from "@/app/store/useNavButton"
 import { Box, Drawer, IconButton } from "@mui/joy";
-import { MobileNavbar } from "./navbar";
+import { MobileNavbar } from "@/app/component/navbar";
 
-export default function NavButton() {
+export default function MenuButton() {
   const { showNavSidebar, setShowNavSidebar } = useNavSidebarStore();
 
   return (

@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import JAvatar from "./avatar";
 import { Navbar } from "./navbar";
-import NavButton from "./navbutton";
-import ThemeToggle from "./theme-button";
+import MenuButton from "./button/menu";
+import ThemeToggle from "./button/theme";
 import SearchBar from "./searchbar";
 import { ReactNode } from "react";
 import SidebarButton from "./sidebar";
@@ -29,7 +29,7 @@ export default function Header({
       )}>
         <div className="flex flex-row gap-2 items-center">
           <div className="hidden md:block"><JAvatar /></div>
-          <div className="block md:hidden"><NavButton /></div>
+          <div className="block md:hidden"><MenuButton /></div>
           <SearchBar />
         </div>
 

@@ -1,6 +1,7 @@
 import Header from "@/app/component/header";
 import { getAllArticles } from "@/app/lib/data";
 import { IArticle } from "@/app/types/article";
+import { getTranslations } from 'next-intl/server';
 import clsx from "clsx";
 
 export default function Layout({
@@ -27,14 +28,16 @@ export default function Layout({
 
 async function Sidebar() {
   const all: IArticle[] = await getAllArticles();
+  const t = await getTranslations("article");
+
   return (
     <aside className={clsx(
       "w-40 flex flex-col justify-center gap-2",
       "circled p-2",
     )}>
-      <h3>统计</h3>
+      <h3>{t('sidebar.title')}</h3>
       <div>
-        共<span className="text-2xl text-red-500 align-[-2px]">{all.length}</span> 篇文章
+        {t('sidebar.count', {count: all.length})}
       </div>
     </aside>
   )
