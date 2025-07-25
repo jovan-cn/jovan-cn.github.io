@@ -2,7 +2,7 @@
 import clsx from "clsx";
 import { IRepository } from "@/app/types/repository"
 import { useSearchBarStore } from '@/app/store/useSearch';
-import NotFound from '@/app/not-found';
+import NotFound from '@/app/[locale]/not-found';
 import { Chip } from '@mui/joy';
 import Link from 'next/link';
 import { Lang } from "@/app/types";
@@ -38,7 +38,6 @@ export default function RepositoryList({
 }
 
 function RepositoryEntry({ r } : {r : IRepository}) {
-  console.log(r);
   return (
     <Link key={r.meta.created}
       href={DynamicPath(['repository', r.meta.title])}

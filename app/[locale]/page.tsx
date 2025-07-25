@@ -1,12 +1,12 @@
-import clsx from "clsx";
 import React from "react";
 import { getAllQuotes } from "@/app/lib/data"
 import { IQuote } from "@/app/types/quote";
 import Header from "@/app/component/header";
 import Clock from "@/app/component/clock";
-import Todo from "@/app/component/todo";
 import Quotes from "@/app/component/quotes";
 import Social from "@/app/component/social";
+import Todo from "../component/todo";
+
 
 
 export default async function Home() {

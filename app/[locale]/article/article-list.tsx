@@ -4,7 +4,7 @@ import { useSearchBarStore } from "@/app/store/useSearch";
 import clsx from "clsx";
 import Link from "next/link";
 import { DynamicPath } from "@/app/lib";
-import NotFound from "@/app/not-found";
+import NotFound from "@/app/[locale]/not-found";
 
 export default function ArticleList({
   list

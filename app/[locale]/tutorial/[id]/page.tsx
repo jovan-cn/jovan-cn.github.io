@@ -1,9 +1,9 @@
 import { getAllTutorials, getTutorialByCreatime } from "@/app/lib/data";
-import Marked from "@/app/component/marked";
 import { ITutorial } from "@/app/types/tutorial";
 import clsx from "clsx";
 import Title from "@/app/component/title";
-import NotFound from "@/app/not-found";
+import NotFound from "@/app/[locale]/not-found";
+import Mdx from "@/app/component/markdown/mdx/mdx";
 
 
 export default async function CTutorial({
@@ -27,7 +27,7 @@ export default async function CTutorial({
         "flex flex-col justify-center gap-2",
         "p-3 circled"
       )}>
-        <Marked content={data.content || ""} />
+        <Mdx content={data.content || ""} />
       </div>
       
     </div>

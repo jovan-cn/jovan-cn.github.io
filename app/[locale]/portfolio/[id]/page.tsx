@@ -1,9 +1,9 @@
-import Marked from "@/app/component/marked";
 import Title from "@/app/component/title";
 import { getAllPortfolio, getPortfolioByName } from "@/app/lib/data";
-import NotFound from "@/app/not-found";
+import NotFound from "@/app/[locale]/not-found";
 import { IPortfolio } from "@/app/types/portfolio";
 import clsx from "clsx";
+import Mdx from "@/app/component/markdown/mdx/mdx";
 
 
 export default async function CPortfolio({
@@ -27,7 +27,7 @@ export default async function CPortfolio({
         "flex flex-col justify-center gap-2 ",
         "p-2 circled",
       )}>
-        <Marked content={data.content || ""} />
+        <Mdx content={data.content || ""} />
       </div>
       
     </div>

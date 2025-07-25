@@ -1,12 +1,12 @@
 import IconLinker from "@/app/component/icon-linker";
-import Marked from "@/app/component/marked";
 import Title from "@/app/component/title";
 import { getAllRepository, getRepositoryByName } from "@/app/lib/data";
-import NotFound from "@/app/not-found";
+import NotFound from "@/app/[locale]/not-found";
 import { Lang, OuterLink } from "@/app/types";
 import { IRepository } from "@/app/types/repository";
 import { Chip } from '@mui/joy';
 import clsx from "clsx";
+import Mdx from "@/app/component/markdown/mdx/mdx";
 
 
 export default async function CRepository({
@@ -58,7 +58,7 @@ export default async function CRepository({
 
         {/* Evaluate */}
         <div className="w-full text-sm">
-          <Marked content={r.content || ""} />
+          <Mdx content={r.content || ""} />
         </div>
 
         {/* language & license */}

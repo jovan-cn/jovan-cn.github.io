@@ -1,9 +1,9 @@
 import { getAllArticles, getArticleByCreatime } from "@/app/lib/data";
-import Marked from "@/app/component/marked";
 import { IArticle } from "@/app/types/article";
 import clsx from "clsx";
 import { notFound } from "next/navigation";
 import Title from "@/app/component/title";
+import Mdx from "@/app/component/markdown/mdx/mdx";
 
 
 // type of id must be string
@@ -29,7 +29,7 @@ export default async function CArticle({
           "flex flex-col justify-center gap-2",
           "p-3 circled"
         )}>
-          <Marked content={data.content || ""} />
+          <Mdx content={data.content || ""} />
         </div>
       </div>
     </div>

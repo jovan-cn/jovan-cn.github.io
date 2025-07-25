@@ -1,5 +1,5 @@
 import { getTODO } from "@/app/lib/data";
-import Marked from "@/app/component/marked";
+import Mdx from "./markdown/mdx/mdx";
 
 
 export default async function Todo() {
@@ -7,7 +7,7 @@ export default async function Todo() {
   return (
     <>
       <h2>TODO</h2>
-      <Marked content={todo} />
+      <Mdx content={todo} />
     </>
   )
 }

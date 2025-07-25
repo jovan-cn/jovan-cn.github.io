@@ -4,9 +4,9 @@ import { IPortfolio } from "@/app/types/portfolio";
 import { Chip } from "@mui/joy";
 import { Lang, OuterLink } from "@/app/types";
 import IconLinker from "@/app/component/icon-linker";
-import Marked from "@/app/component/marked";
 import Link from "next/link";
 import { DynamicPath } from "@/app/lib";
+import Mdx from "@/app/component/markdown/mdx/mdx";
 
 export default async function PagePortfolio() {
   const datas: IPortfolio[] = await getAllPortfolio();
@@ -41,7 +41,7 @@ export default async function PagePortfolio() {
                     {a.meta.title}
                   </h3>
                   <div className="flex-1 text-sm">
-                    <Marked content={a.meta.desc} />
+                    <Mdx content={a.meta.desc} />
                   </div>
                   <div className="flex flex-row justify-between items-center gap-1">
                     <div>

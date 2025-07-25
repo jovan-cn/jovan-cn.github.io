@@ -1,10 +1,23 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from 'next-intl/plugin';
+import createMDX from '@next/mdx'
+import remarkGfm from 'remark-gfm';
 
 
+
+/** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Configure `pageExtensions` to include markdown and MDX files
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 };
 
 const withNextIntl = createNextIntlPlugin();
-export default withNextIntl(nextConfig);
+const withMDX = createMDX({
+  // default mdx only, extends for md
+  extension: /\.(md|mdx)$/,
+  options: {
+    remarkPlugins: [remarkGfm]
+  }
+});
+
+export default withNextIntl(withMDX(nextConfig));

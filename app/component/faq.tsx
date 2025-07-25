@@ -1,5 +1,5 @@
 'use client'
-import Marked from "@/app/component/marked";
+import Marked from "@/app/component/markdown/marked";
 import { IFAQ } from "@/app/types/faq";
 import { IconButton, List, ListItem } from "@mui/joy"
 import clsx from "clsx";
