@@ -7,6 +7,7 @@ import { IRepository } from "@/app/types/repository";
 import { Chip } from '@mui/joy';
 import clsx from "clsx";
 import Mdx from "@/app/component/markdown/mdx/mdx";
+import ZoomImg from "@/app/component/markdown/mdx/image";
 
 
 export default async function CRepository({
@@ -53,7 +54,7 @@ export default async function CRepository({
 
         {/* Cover */}
         <div className="w-full circled">
-          <img src={r.meta.cover} className="w-full h-full rounded" />
+          <ZoomImg children={r.meta.cover} />
         </div>
 
         {/* Evaluate */}

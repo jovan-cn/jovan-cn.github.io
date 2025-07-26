@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import type { MDXComponents } from 'mdx/types'
 import React from 'react';
 import { CopyCodeBlock } from '@/app/component/markdown/mdx/code';
+import ZoomImg from './app/component/markdown/mdx/image';
  
 const CustomLi = ({ children, className, ...props }) => {
   const childrenArray = React.Children.toArray(children);
@@ -64,6 +65,9 @@ export function useMDXComponents(
       <Link href={href} target="_blank" >
         {children}
       </Link>
+    ),
+    img: (props) => (
+      <ZoomImg children={props.src} />
     ),
     pre: (props) => {
       if (props.children?.type === 'code') {
