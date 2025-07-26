@@ -169,7 +169,7 @@ const createColorSchemes = (
         ...colors,
       },
       background: {
-        body: isLight ? twcolor('zinc', 100) : twcolor('slate', 800),
+        body: isLight ? twcolor('zinc', 100) : 'black',
         surface: twcolor('slate', isLight ? 200 : 900),
       },
       text: {

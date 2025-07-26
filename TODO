@@ -2,8 +2,9 @@
 - [x] search 查询
 - [x] favicon, manifest
 - [x] 联系方式
+- [x] mdx集成
+- [x] 统计看板
 - [ ] tag 支持
-- [ ] 统计看板
 - [ ] 动画效果（明暗切换过渡）
 - [ ] CICD
 - [ ] RSS

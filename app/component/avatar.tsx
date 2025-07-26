@@ -8,7 +8,7 @@ export default async function JAvatar() {
         variant="outlined"
         src={meta.avatar}
         alt="logo"
-        className="w-8 h-8 object-cover rounded-full 
+        className="w-8 h-8 object-cover rounded-full cursor-none
            group-hover:animate-[spin-reverse_1s_linear_infinite] "
       />
     </div>
