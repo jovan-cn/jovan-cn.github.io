@@ -4,8 +4,8 @@ import "@/app/css/globals.css";
 import meta from "@/data/system/meta.json"
 import ThemeProvider from "@/app/component/theme-provider";
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
-import { getLocale } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
+import NotFound from "./not-found";
 
 
 
@@ -35,7 +35,7 @@ export default async function RootLayout({
   // Ensure that the incoming `locale` is valid
   const {locale} = await params;
   if (!hasLocale(routing.locales, locale)) {
-    notFound();
+    NotFound();
   }
 
   return (

@@ -1,9 +1,10 @@
 import Title from "@/app/component/title";
-import { getAllPortfolio, getPortfolioByName } from "@/app/lib/data";
+import { getAllData, getPortfolioByName } from "@/app/lib/data";
 import NotFound from "@/app/[locale]/not-found";
 import { IPortfolio } from "@/app/types/portfolio";
 import clsx from "clsx";
 import Mdx from "@/app/component/markdown/mdx/mdx";
+import { routing } from "@/i18n/routing";
 
 
 export default async function CPortfolio({
@@ -20,7 +21,7 @@ export default async function CPortfolio({
 
   return (
     <div className={clsx("w-full flex flex-col justify-center gap-1")}>
-      <Title title={data.meta.title} />
+      <Title title={data.title} />
 
       {/* body */}
       <div className={clsx(
@@ -36,8 +37,13 @@ export default async function CPortfolio({
 
 
 export async function generateStaticParams() {
-  const list: IPortfolio[] = await getAllPortfolio();
-  return list.map((a: IPortfolio) => ({
-    id: a.meta.title,
-  }))
+  const locales = routing.locales;
+  const list: IPortfolio[][] = await Promise.all(
+    locales.map(l => getAllData("portfolio", l))
+  );
+  return list.flatMap((pvec: IPortfolio[]) => 
+    pvec.map(p => ({
+      id: p.title,
+    }))
+  )
 }

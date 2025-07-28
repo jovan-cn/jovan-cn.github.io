@@ -1,13 +1,13 @@
 import { promises as fs } from 'fs'
 import path from 'path'
 import matter from 'gray-matter';
-import { IRepository, IRepositoryFrontMatter } from '@/app/types/repository';
-import { IArticleFrontMatter } from '../types/article';
-import { IPortfolioFrontMatter } from '../types/portfolio';
-import { ITutorialFrontMatter } from '../types/tutorial';
+import { IRepository } from '@/app/types/repository';
+import { IArticle } from '../types/article';
+import { IPortfolio} from '../types/portfolio';
+import { ITutorial} from '../types/tutorial';
 import { BaseMatter } from '../types';
 import dayjs from 'dayjs';
-import { IQuote, IQuoteMatter } from '../types/quote';
+import { IQuote} from '../types/quote';
 
 
 
@@ -70,80 +70,75 @@ async function getAllMdFiles(dirs: string[]) {
   }>;
 }
 
-
 async function getContentByType<T extends BaseMatter>(
   dirs: string[],
 ) {
   const list = await getAllMdFiles(dirs);
   return list
     .map((v) => ({
-      meta: v.data as T,
       content: v.content,
+      ...v.data,
     }))
     .sort((a, b) => {
-      return b.meta.modified - a.meta.modified;
+      return b.modified - a.modified;
     })
   
 }
 
+type ContentTypeMap = {
+  repository: IRepository;
+  article: IArticle;
+  tutorial: ITutorial,
+  portfolio: IPortfolio,
+  quotes: IQuote,
+};
+
+export type ContentType = keyof ContentTypeMap;
+
+
+export async function getAllData<T extends ContentType>(
+  type: T,
+  locale: string,
+): Promise<ContentTypeMap[T][]> {
+  return getContentByType<ContentTypeMap[T]>([process.cwd(), "data", type]);
+}
 
 //////          Repository
 
-export async function getAllRepository(): Promise<IRepository[]> {
-  return getContentByType<IRepositoryFrontMatter>([process.cwd(), "data", "repository"]);
-}
-
 export async function getRepositoryByName(n: string) {
-  const repos = await getAllRepository();
-  return repos.find(r => r.meta.title == n);
+  const repos = await getAllData("repository", "zh");
+  return repos.find(r => r.title == n);
 }
 
 
 //////          Article
 
-export async function getAllArticles() {
-  return getContentByType<IArticleFrontMatter>([process.cwd(), "data", "article"]);
-}
 
 export async function getArticleByName(name: string) {
-  const articles = await getAllArticles();
-  return articles.find(a => a.meta.title === name);
+  const articles = await getAllData("article", "zh");
+  return articles.find(a => a.title === name);
 }
 export async function getArticleByCreatime(ts: string) {
-  const articles = await getAllArticles();
-  return articles.find(a => a.meta.created.toString() === ts);
+  const articles = await getAllData("article", "zh");
+  return articles.find(a => a.created.toString() === ts);
 }
 
 ////////             Tutorial
-export async function getAllTutorials() {
-  return getContentByType<ITutorialFrontMatter>([process.cwd(), "data", "tutorial"]);
-}
-
 export async function getTutorialByName(name: string) {
-  const tutorials = await getAllTutorials();
-  return tutorials.find(a => a.meta.title === name);
+  const tutorials = await getAllData("tutorial", "zh");
+  return tutorials.find(a => a.title === name);
 }
 export async function getTutorialByCreatime(ts: string) {
-  const tutorials = await getAllTutorials();
-  return tutorials.find(a => a.meta.created.toString() === ts);
+  const tutorials = await getAllData("tutorial", "zh");
+  return tutorials.find(a => a.created.toString() === ts);
 }
 
 ////////             Portfolio
-
-export async function getAllPortfolio() {
-  return getContentByType<IPortfolioFrontMatter>([process.cwd(), "data", "portfolio"]);
-}
-
 export async function getPortfolioByName(n: string) {
-  const repos = await getAllPortfolio();
-  return repos.find(r => r.meta.title == n);
+  const repos = await getAllData("portfolio", "zh");
+  return repos.find(r => r.title == n);
 }
 
-
-////////            Quotes
-export async function getAllQuotes(): Promise<IQuote[]> {
-  return getContentByType<IQuoteMatter>([process.cwd(), "data", "home", "quotes"]);
-}
 
 ////////             TODO
 export async function getTODO() {

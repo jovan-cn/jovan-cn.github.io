@@ -8,7 +8,6 @@ export interface IArticleFrontMatter extends BaseMatter {
   tags?:        string[],
 };
 
-export interface IArticle {
-  meta:       IArticleFrontMatter,
+export interface IArticle extends IArticleFrontMatter {
   content:      string | undefined,
 };

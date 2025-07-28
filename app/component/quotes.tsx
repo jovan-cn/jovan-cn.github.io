@@ -28,7 +28,7 @@ export default function Quotes({
         {quotes[index].content}
       </div>
       <div className="text-center text-md">
-        {'--'} {quotes[index].meta.author}
+        {'--'} {quotes[index].author}
       </div>
     </>
   )

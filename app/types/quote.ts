@@ -6,7 +6,6 @@ export interface IQuoteMatter extends BaseMatter {
   avatar?: string,
 }
 
-export interface IQuote {
-  meta: IQuoteMatter,
+export interface IQuote extends IQuoteMatter {
   content: string,
 }

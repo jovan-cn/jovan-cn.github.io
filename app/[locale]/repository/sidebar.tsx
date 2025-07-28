@@ -1,10 +1,11 @@
 import clsx from "clsx";
-import { getAllRepository } from "@/app/lib/data"
-import { getTranslations } from 'next-intl/server';
+import { getAllData } from "@/app/lib/data"
+import { getLocale, getTranslations } from 'next-intl/server';
 
 
 export default async function RepositorySidebar() {
-  const repos = await getAllRepository();
+  const locale = await getLocale();
+  const repos = await getAllData("repository", locale);
   const t = await getTranslations('repository');
 
   /* FIX: chinese & english & number baseline are different */

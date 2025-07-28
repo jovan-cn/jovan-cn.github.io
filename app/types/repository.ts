@@ -12,7 +12,6 @@ export interface IRepositoryFrontMatter extends BaseMatter {
 };
 
 
-export interface IRepository {
-  meta:     IRepositoryFrontMatter,
+export interface IRepository extends IRepositoryFrontMatter {
   content:  string;
 }

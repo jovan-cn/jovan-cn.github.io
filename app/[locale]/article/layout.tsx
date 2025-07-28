@@ -1,7 +1,7 @@
 import Header from "@/app/component/header";
-import { getAllArticles } from "@/app/lib/data";
+import { getAllData } from "@/app/lib/data";
 import { IArticle } from "@/app/types/article";
-import { getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations } from 'next-intl/server';
 import clsx from "clsx";
 
 export default function Layout({
@@ -27,7 +27,8 @@ export default function Layout({
 }
 
 async function Sidebar() {
-  const all: IArticle[] = await getAllArticles();
+  const locale = await getLocale();
+  const all: IArticle[] = await getAllData("article", locale);
   const t = await getTranslations("article");
 
   return (

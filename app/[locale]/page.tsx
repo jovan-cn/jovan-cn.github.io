@@ -1,16 +1,18 @@
 import React from "react";
-import { getAllQuotes } from "@/app/lib/data"
+import { getAllData } from "@/app/lib/data"
 import { IQuote } from "@/app/types/quote";
 import Header from "@/app/component/header";
 import Clock from "@/app/component/clock";
 import Quotes from "@/app/component/quotes";
 import Social from "@/app/component/social";
 import Todo from "../component/todo";
+import { getLocale } from "next-intl/server";
 
 
 
 export default async function Home() {
-  const quotes: IQuote[] = await getAllQuotes();
+  const locale = await getLocale();
+  const quotes: IQuote[] = await getAllData("quotes", locale);
 
   return (
     <div className="flex flex-col min-h-screen">

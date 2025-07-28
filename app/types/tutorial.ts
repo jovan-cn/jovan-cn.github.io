@@ -8,7 +8,6 @@ export interface ITutorialFrontMatter extends BaseMatter {
   tags?:        string[],
 };
 
-export interface ITutorial {
-  meta:     ITutorialFrontMatter,
+export interface ITutorial extends ITutorialFrontMatter {
   content:  string | undefined,
 };

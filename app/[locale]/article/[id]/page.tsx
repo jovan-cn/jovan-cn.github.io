@@ -1,9 +1,10 @@
-import { getAllArticles, getArticleByCreatime } from "@/app/lib/data";
+import { getAllData, getArticleByCreatime } from "@/app/lib/data";
 import { IArticle } from "@/app/types/article";
 import clsx from "clsx";
 import { notFound } from "next/navigation";
 import Title from "@/app/component/title";
 import Mdx from "@/app/component/markdown/mdx/mdx";
+import { routing } from "@/i18n/routing";
 
 
 // type of id must be string
@@ -22,7 +23,7 @@ export default async function CArticle({
   return (
     <div className="container">
       <div className={clsx("flex flex-col justify-center gap-1")}>
-        <Title title={data.meta.title} />
+        <Title title={data.title} />
 
         {/* body */}
         <div className={clsx(
@@ -39,8 +40,13 @@ export default async function CArticle({
 
 // https://nextjs.org/docs/app/api-reference/functions/generate-static-params
 export async function generateStaticParams() {
-  const list: IArticle[] = await getAllArticles();
-  return list.map((a: IArticle) => ({
-    id: a.meta.created.toString(),
-  }))
+  const locales = routing.locales;
+  const list: IArticle[][] = await Promise.all(
+    locales.map(locale => getAllData("article", locale))
+  );
+  return list.flatMap((avec: IArticle[]) => 
+    avec.map((a: IArticle) => ({
+      id: a.created.toString(),
+    }))
+  )
 }

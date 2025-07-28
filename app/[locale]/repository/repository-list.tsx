@@ -18,8 +18,8 @@ export default function RepositoryList({
 
   const repositories = list.filter(r => (
     searchContent
-      ? r.meta.title.includes(searchContent) ||
-        r.meta.desc?.includes(searchContent) ||
+      ? r.title.includes(searchContent) ||
+        r.desc?.includes(searchContent) ||
         r.content?.includes(searchContent)
       : true
   ));
@@ -39,8 +39,8 @@ export default function RepositoryList({
 
 function RepositoryEntry({ r } : {r : IRepository}) {
   return (
-    <Link key={r.meta.created}
-      href={DynamicPath(['repository', r.meta.title])}
+    <Link key={r.created}
+      href={DynamicPath(['repository', r.title])}
       className={clsx("h-24 litem")}
     >
       {/* left */}
@@ -49,13 +49,13 @@ function RepositoryEntry({ r } : {r : IRepository}) {
         <div className={clsx("flex flex-row items-center justify-between gap-3")}>
           {/* Title */}
           <span className="line-clamp-1">
-            {r.meta.title}
+            {r.title}
           </span>
 
           {/* License */}
           <div className="flex flex-wrap gap-1">
             <Chip variant="outlined" color="neutral">
-              {r.meta.license}
+              {r.license}
             </Chip>
           </div>
         </div>
@@ -66,19 +66,19 @@ function RepositoryEntry({ r } : {r : IRepository}) {
           "text-gray-700 dark:text-zinc-500",
         )}>
           {/* Description */}
-          {r.meta.desc}
+          {r.desc}
         </div>
 
         {/* 3rd */}
         <div className="flex flex-row items-center gap-2">
           {/* Avatar */}
-          <img src={r.meta.avatar} alt={r.meta.author}
+          <img src={r.avatar} alt={r.author}
             className="w-4 h-4 rounded-full"
           />
           {/* Author */}
-          <span className="text-xs">{r.meta.author}</span>
+          <span className="text-xs">{r.author}</span>
           {/* Languages */}
-          {r.meta.language.map((lang: Lang) => (
+          {r.language.map((lang: Lang) => (
             <Chip key={lang} variant="soft" >
               {lang}
             </Chip>
@@ -90,8 +90,8 @@ function RepositoryEntry({ r } : {r : IRepository}) {
       {/* right */}
       <div className={clsx("h-full aspect-[4/3]")}>
         {/* Cover */}
-        <img src={r.meta.cover}
-          alt={r.meta.title}
+        <img src={r.cover}
+          alt={r.title}
           className="object-cover w-full h-full rounded"
         />
       </div>

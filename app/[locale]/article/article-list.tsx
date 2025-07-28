@@ -15,7 +15,7 @@ export default function ArticleList({
 
   const datas = list.filter(d => (
     searchContent 
-      ? d.content?.includes(searchContent) || d.meta.title.includes(searchContent)
+      ? d.content?.includes(searchContent) || d.title.includes(searchContent)
       : true
   ));
 
@@ -28,15 +28,15 @@ export default function ArticleList({
       {datas.map((a: IArticle, i: number) => {
         return (
           <Link key={i}
-            href={DynamicPath(['article', encodeURIComponent(a.meta.created)])}
+            href={DynamicPath(['article', encodeURIComponent(a.created)])}
             className={clsx("h-20 sm:h-24 litem")}
           >
             <div className="flex flex-col items-between gap-2">
               <div>
-                {a.meta.title}
+                {a.title}
               </div>
               <div className={clsx("text-sm")}>
-                {a.meta.abstract}
+                {a.abstract}
               </div>
             </div>
           </Link>

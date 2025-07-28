@@ -8,7 +8,6 @@ export interface IPortfolioFrontMatter extends BaseMatter {
   links:        OuterLink[],
 }
 
-export interface IPortfolio {
-  meta: IPortfolioFrontMatter,
+export interface IPortfolio extends IPortfolioFrontMatter {
   content: string,
 }

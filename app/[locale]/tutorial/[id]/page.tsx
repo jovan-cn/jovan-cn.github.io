@@ -1,9 +1,10 @@
-import { getAllTutorials, getTutorialByCreatime } from "@/app/lib/data";
+import { getAllData, getTutorialByCreatime } from "@/app/lib/data";
 import { ITutorial } from "@/app/types/tutorial";
 import clsx from "clsx";
 import Title from "@/app/component/title";
 import NotFound from "@/app/[locale]/not-found";
 import Mdx from "@/app/component/markdown/mdx/mdx";
+import { routing } from "@/i18n/routing";
 
 
 export default async function CTutorial({
@@ -20,7 +21,7 @@ export default async function CTutorial({
 
   return (
     <div className={clsx("flex flex-col justify-center gap-1 w-full")}>
-      <Title title={data.meta.title} />
+      <Title title={data.title} />
 
       {/* body */}
       <div className={clsx(
@@ -37,8 +38,13 @@ export default async function CTutorial({
 
 // https://nextjs.org/docs/app/api-reference/functions/generate-static-params
 export async function generateStaticParams() {
-  const datas: ITutorial[] = await getAllTutorials();
-  return datas.map((a: ITutorial) => ({
-    id: a.meta.created.toString(),
-  }))
+  const locales = routing.locales;
+  const datas: ITutorial[][] = await Promise.all(
+    locales.map(l => getAllData("tutorial", l))
+  );
+  return datas.flatMap((tvec: ITutorial[]) =>
+    tvec.map(t => ({
+      id: t.created.toString(),
+    }))
+  )
 }

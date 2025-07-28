@@ -1,6 +1,6 @@
 import IconLinker from "@/app/component/icon-linker";
 import Title from "@/app/component/title";
-import { getAllRepository, getRepositoryByName } from "@/app/lib/data";
+import { getAllData, getRepositoryByName } from "@/app/lib/data";
 import NotFound from "@/app/[locale]/not-found";
 import { Lang, OuterLink } from "@/app/types";
 import { IRepository } from "@/app/types/repository";
@@ -8,6 +8,7 @@ import { Chip } from '@mui/joy';
 import clsx from "clsx";
 import Mdx from "@/app/component/markdown/mdx/mdx";
 import ZoomImg from "@/app/component/markdown/mdx/image";
+import { routing } from "@/i18n/routing";
 
 
 export default async function CRepository({
@@ -24,7 +25,7 @@ export default async function CRepository({
 
   return (
     <div className={clsx("flex flex-col justify-center gap-1")}>
-      <Title title={r.meta.title} />
+      <Title title={r.title} />
 
       {/* body */}
       <div className={clsx(
@@ -34,14 +35,14 @@ export default async function CRepository({
         <div className={clsx("w-full flex items-center justify-between")}>
           {/* Author  */}
           <div className="flex items-center gap-1">
-            <img src={r.meta.avatar} alt={r.meta.author}
+            <img src={r.avatar} alt={r.author}
               className="w-4 h-4 rounded-full"
             />
-            <h4>{r.meta.author}</h4>
+            <h4>{r.author}</h4>
           </div>
 
           <div className="flex items-center gap-1">
-            {r.meta.links.map((link: OuterLink, i: number) => {
+            {r.links.map((link: OuterLink, i: number) => {
               return <IconLinker key={i} data={link} />
             })}
           </div>
@@ -49,12 +50,12 @@ export default async function CRepository({
 
         {/* Description */}
         <div className="w-full">
-          {r.meta.desc}
+          {r.desc}
         </div>
 
         {/* Cover */}
         <div className="w-full circled">
-          <ZoomImg children={r.meta.cover} />
+          <ZoomImg children={r.cover} />
         </div>
 
         {/* Evaluate */}
@@ -65,7 +66,7 @@ export default async function CRepository({
         {/* language & license */}
         <div className="flex items-center justify-between w-full">
           <div className={clsx("")}>
-            {r.meta.language.map((lang: Lang) => (
+            {r.language.map((lang: Lang) => (
               <Chip key={lang} variant="soft" >
                 {lang}
               </Chip>
@@ -74,7 +75,7 @@ export default async function CRepository({
 
           <div className="flex flex-wrap gap-1">
             <Chip variant="outlined" color="neutral">
-              {r.meta.license}
+              {r.license}
             </Chip>
           </div>
         </div>
@@ -87,8 +88,13 @@ export default async function CRepository({
 
 // https://nextjs.org/docs/app/api-reference/functions/generate-static-params
 export async function generateStaticParams() {
-  const repos: IRepository[] = await getAllRepository();
-  return repos.map((r: IRepository) => ({
-    id: r.meta.title,
-  }))
+  const locales = routing.locales;
+  const repos: IRepository[][] = await Promise.all(
+    locales.map(locale => getAllData("repository", locale))
+  );
+
+  return repos.flatMap((rvec: IRepository[]) => 
+    rvec.map(r => ({
+    id: r.title,
+  })))
 }
