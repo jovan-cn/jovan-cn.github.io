@@ -47,7 +47,7 @@
   }
 
   * {
-    @apply border-gray-200 dark:border-gray-700 divide-gray-200 dark:divide-gray-700;
+    @apply border-gray-200 dark:border-gray-900 divide-gray-200 dark:divide-gray-900;
   }
 
 }
@@ -70,7 +70,7 @@
     @apply flex flex-col rounded border divide-y;
   }
   .litem {
-    @apply p-1 flex justify-between gap-1 first:rounded-t last:rounded-b hover:dark:bg-slate-700 hover:bg-slate-200;
+    @apply p-1 flex justify-between gap-1 first:rounded-t last:rounded-b hover:dark:bg-gray-900 hover:bg-slate-200;
   }
 
   .circled {
