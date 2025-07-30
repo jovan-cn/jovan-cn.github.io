@@ -56,9 +56,7 @@ export default async function CRepository({
         </div>
 
         {/* Cover */}
-        <div className="w-full circled">
-          <ZoomImg children={r.cover} />
-        </div>
+        <ZoomImg children={r.cover} />
 
         {/* Evaluate */}
         <div className="w-full text-sm">

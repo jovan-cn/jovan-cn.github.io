@@ -19,11 +19,13 @@ export default function ZoomImg({
   }, [])
 
   return (
-    <ControlledZoom
-      isZoomed={isZoomed}
-      onZoomChange={handleZoomChange}
-    >
-      <img src={children} alt="" className="w-full h-full rounded" />
-    </ControlledZoom>
+    <div className="w-full circled">
+      <ControlledZoom
+        isZoomed={isZoomed}
+        onZoomChange={handleZoomChange}
+      >
+        <img src={children} alt="" className="w-full h-full rounded" />
+      </ControlledZoom>
+    </div>
   )
 }
