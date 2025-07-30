@@ -11,6 +11,7 @@ export interface OuterLink {
 // since nextjs cannot transfer Dayjs object between Server components and Client components
 // use unix timestamp replace of Dayjs
 export interface BaseMatter {
+  id:       number, // unique id for dynamic path (maybe db's primary key in the future)
   created:  number, // Dayjs.unix()
   modified: number, // Dayjs.unix()
   accessed: number, // Dayjs.unix()

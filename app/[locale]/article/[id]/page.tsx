@@ -1,10 +1,11 @@
-import { getAllData, getArticleByCreatime } from "@/app/lib/data";
+import { getAllData, getDataByID } from "@/app/lib/data";
 import { IArticle } from "@/app/types/article";
 import clsx from "clsx";
-import { notFound } from "next/navigation";
 import Title from "@/app/component/title";
 import Mdx from "@/app/component/markdown/mdx/mdx";
 import { routing } from "@/i18n/routing";
+import { getLocale } from "next-intl/server";
+import NotFound from "../../not-found";
 
 
 // type of id must be string
@@ -13,11 +14,12 @@ export default async function CArticle({
 } : {
   params: Promise<{id: string}>
 }) {
+  const locale = await getLocale();
   const { id } = await params;
-  const data = await getArticleByCreatime(id);
+  const data = await getDataByID("article", locale, id);
 
   if (data === undefined) {
-    return notFound();
+    return NotFound();
   }
 
   return (
@@ -46,7 +48,7 @@ export async function generateStaticParams() {
   );
   return list.flatMap((avec: IArticle[]) => 
     avec.map((a: IArticle) => ({
-      id: a.created.toString(),
+      id: a.id,
     }))
   )
 }

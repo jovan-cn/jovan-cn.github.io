@@ -1,4 +1,4 @@
-import meta from "@/data/system/meta.json"
+import meta from "@/data/zh/system/meta.json"
 import { Avatar } from "@mui/joy"
 
 export default async function JAvatar() {

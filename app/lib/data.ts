@@ -32,8 +32,6 @@ async function getMdData(filename: string[]) {
 }
 
 
-
-
 async function getAllMdFiles(dirs: string[]) {
   const dir = path.join(...dirs);
   const filenames = await fs.readdir(dir);
@@ -100,13 +98,22 @@ export async function getAllData<T extends ContentType>(
   type: T,
   locale: string,
 ): Promise<ContentTypeMap[T][]> {
-  return getContentByType<ContentTypeMap[T]>([process.cwd(), "data", type]);
+  return getContentByType<ContentTypeMap[T]>([process.cwd(), "data", locale, type]);
+}
+
+export async function getDataByID<T extends ContentType>(
+  type: T,
+  locale: string,
+  id: string,
+): Promise<ContentTypeMap[T] | undefined> {
+  const lists = await getAllData(type, locale);
+  return lists.find(d => d.id.toString() === id);
 }
 
 //////          Repository
 
-export async function getRepositoryByName(n: string) {
-  const repos = await getAllData("repository", "zh");
+export async function getRepositoryByName(locale: string, n: string) {
+  const repos = await getAllData("repository", locale);
   return repos.find(r => r.title == n);
 }
 
@@ -114,28 +121,30 @@ export async function getRepositoryByName(n: string) {
 //////          Article
 
 
-export async function getArticleByName(name: string) {
-  const articles = await getAllData("article", "zh");
+export async function getArticleByName(locale: string, name: string) {
+  const articles = await getAllData("article", locale);
   return articles.find(a => a.title === name);
 }
-export async function getArticleByCreatime(ts: string) {
-  const articles = await getAllData("article", "zh");
+export async function getArticleByCreatime(locale: string, ts: string) {
+  console.log(locale, ts);
+  const articles = await getAllData("article", locale);
   return articles.find(a => a.created.toString() === ts);
 }
 
 ////////             Tutorial
-export async function getTutorialByName(name: string) {
-  const tutorials = await getAllData("tutorial", "zh");
+export async function getTutorialByName(locale: string, name: string) {
+  const tutorials = await getAllData("tutorial", locale);
   return tutorials.find(a => a.title === name);
 }
-export async function getTutorialByCreatime(ts: string) {
-  const tutorials = await getAllData("tutorial", "zh");
+export async function getTutorialByCreatime(locale: string, ts: string) {
+  console.log(locale);
+  const tutorials = await getAllData("tutorial", locale);
   return tutorials.find(a => a.created.toString() === ts);
 }
 
 ////////             Portfolio
-export async function getPortfolioByName(n: string) {
-  const repos = await getAllData("portfolio", "zh");
+export async function getPortfolioByName(locale: string, n: string) {
+  const repos = await getAllData("portfolio", locale);
   return repos.find(r => r.title == n);
 }
 

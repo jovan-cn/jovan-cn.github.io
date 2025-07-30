@@ -1,5 +1,5 @@
 import { INavItem } from "@/app/types";
-import entries from '@/data/system/navbar.json';
+import entries from '@/data/zh/system/navbar.json';
 import clsx from "clsx";
 import NavItem from "@/app/component/navitem";
 

@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import clsx from "clsx";
 import "@/app/css/globals.css";
-import meta from "@/data/system/meta.json"
+import meta from "@/data/zh/system/meta.json"
 import ThemeProvider from "@/app/component/theme-provider";
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { routing } from '@/i18n/routing';

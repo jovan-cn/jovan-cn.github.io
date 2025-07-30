@@ -1,0 +1,27 @@
+[
+  {
+    "label": "home",
+    "icon": "MdHome",
+    "to": "/"
+  },
+  {
+    "label": "repository",
+    "icon": "AiFillGithub",
+    "to": "/repository"
+  },
+  {
+    "label": "article",
+    "icon": "GiBookshelf",
+    "to": "/article"
+  },
+  {
+    "label": "tutorial",
+    "icon": "IoHammerOutline",
+    "to": "/tutorial"
+  },
+  {
+    "label": "portfolio",
+    "icon": "GiCampfire",
+    "to": "/portfolio"
+  }
+]

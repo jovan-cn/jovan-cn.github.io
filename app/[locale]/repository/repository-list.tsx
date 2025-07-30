@@ -40,7 +40,7 @@ export default function RepositoryList({
 function RepositoryEntry({ r } : {r : IRepository}) {
   return (
     <Link key={r.created}
-      href={DynamicPath(['repository', r.title])}
+      href={DynamicPath(['repository', r.id.toString()])}
       className={clsx("h-24 litem")}
     >
       {/* left */}

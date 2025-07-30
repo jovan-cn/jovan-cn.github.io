@@ -1,4 +1,5 @@
 ---
+id: 1
 title: 用户手册编写指南
 abstract: 软件开发人员编写用户指引手册。
 author: Jovan

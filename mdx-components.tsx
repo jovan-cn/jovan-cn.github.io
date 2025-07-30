@@ -52,7 +52,7 @@ export function useMDXComponents(
       <h4 className='leading-8'>{children}</h4>
     ),
     p: ({ children }) => (
-      <p className='leading-6'>{children}</p>
+      <div className='leading-6'>{children}</div>
     ),
     ul: ({ children }) => (
       <ul className='list-disc ps-6'>{children}</ul>

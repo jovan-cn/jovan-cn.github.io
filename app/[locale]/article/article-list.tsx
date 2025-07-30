@@ -28,7 +28,7 @@ export default function ArticleList({
       {datas.map((a: IArticle, i: number) => {
         return (
           <Link key={i}
-            href={DynamicPath(['article', encodeURIComponent(a.created)])}
+            href={DynamicPath(['article', encodeURIComponent(a.id)])}
             className={clsx("h-20 sm:h-24 litem")}
           >
             <div className="flex flex-col items-between gap-2">

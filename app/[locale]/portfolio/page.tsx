@@ -23,7 +23,7 @@ export default async function PagePortfolio() {
             )}>
               <div className="flex flex-col w-full h-full">
                 {/* top */}
-                <Link href={DynamicPath(['portfolio', encodeURIComponent(a.title)])}
+                <Link href={DynamicPath(['portfolio', encodeURIComponent(a.id)])}
                   className={clsx(
                     "h-3/5 rounded-t overflow-hidden bg-slate-700",
                 )}>

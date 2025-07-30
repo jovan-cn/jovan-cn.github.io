@@ -17,7 +17,7 @@ export default async function PageTutorial() {
         {datas.map((a: ITutorial, i: number) => {
           return (
             <Link key={i}
-              href={DynamicPath(['tutorial', a.created.toString()])}
+              href={DynamicPath(['tutorial', a.id.toString()])}
               className={clsx("h-20 sm:h-24 litem")}
             >
               <div className="flex flex-col justify-between">

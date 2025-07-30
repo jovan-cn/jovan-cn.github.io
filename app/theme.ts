@@ -173,7 +173,7 @@ const createColorSchemes = (
         surface: twcolor('slate', isLight ? 200 : 900),
       },
       text: {
-        secondary: twcolor('zinc', isLight ? 800 : 100),
+        secondary: twcolor('zinc', isLight ? 800 : 300),
       },
       focusVisible: twcolor('gray', isLight ? 300 : 700),
     }

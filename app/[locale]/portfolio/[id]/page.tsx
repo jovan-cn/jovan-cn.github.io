@@ -1,10 +1,11 @@
 import Title from "@/app/component/title";
-import { getAllData, getPortfolioByName } from "@/app/lib/data";
+import { getAllData, getDataByID, getPortfolioByName } from "@/app/lib/data";
 import NotFound from "@/app/[locale]/not-found";
 import { IPortfolio } from "@/app/types/portfolio";
 import clsx from "clsx";
 import Mdx from "@/app/component/markdown/mdx/mdx";
 import { routing } from "@/i18n/routing";
+import { getLocale } from "next-intl/server";
 
 
 export default async function CPortfolio({
@@ -12,8 +13,9 @@ export default async function CPortfolio({
 } : {
   params: {id: string}
 }) {
+  const locale = await getLocale();
   const name = decodeURIComponent(params.id);
-  const data = await getPortfolioByName(name);
+  const data = await getDataByID("portfolio", locale, name);
 
   if (data === undefined) {
     return NotFound();
@@ -43,7 +45,7 @@ export async function generateStaticParams() {
   );
   return list.flatMap((pvec: IPortfolio[]) => 
     pvec.map(p => ({
-      id: p.title,
+      id: p.id,
     }))
   )
 }

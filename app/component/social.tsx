@@ -1,4 +1,4 @@
-import social from "@/data/home/social.json"
+import social from "@/data/zh/home/social.json"
 import { ISocial } from "@/app/types"
 import ReactIcons from "@/app/lib/icons";
 import { Link, Tooltip } from "@mui/joy";

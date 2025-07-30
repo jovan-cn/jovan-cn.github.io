@@ -1,4 +1,5 @@
 ---
+id: 0
 title: git 操作
 abstract: 主要介绍 git 常用操作，备份本地文件夹和版本管理的好帮手。
 icon: material/git
