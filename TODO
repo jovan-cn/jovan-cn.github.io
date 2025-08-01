@@ -4,9 +4,10 @@
 - [x] 联系方式
 - [x] mdx集成
 - [x] 统计看板
+- [x] i18n
+- [ ] Google Analysis
+- [ ] RSS
+- [ ] CICD
 - [ ] tag 支持
 - [ ] 动画效果（明暗切换过渡）
-- [ ] CICD
-- [ ] RSS
-- [ ] Google Analysis
 

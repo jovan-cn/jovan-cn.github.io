@@ -28,7 +28,10 @@ export default function SidebarButton({
         <Box sx={{
           display: 'flex',
           flexDirection: 'column',
-          padding: '16px',
+          paddingLeft: '4px',
+          paddingRight: '4px',
+          paddingTop: '8px',
+          width: '100%',
         }}>
           {children}
         </Box>

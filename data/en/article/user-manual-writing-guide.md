@@ -43,7 +43,7 @@ tags: manual
 ------
 
 
-> 特别说明：本文引自[阮一峰 -- 中文技术文档的写作规范](https://github.com/ruanyf/document-style-guide/tree/master)
+> 本文引自[阮一峰 -- 中文技术文档的写作规范](https://github.com/ruanyf/document-style-guide/tree/master)
 
 
 更详细的规范可以阅读[Requirements for Chinese Text Layout 中文排版需求](https://w3c.github.io/clreq/)

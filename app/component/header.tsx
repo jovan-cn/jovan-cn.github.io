@@ -3,7 +3,6 @@ import JAvatar from "./avatar";
 import { Navbar } from "./navbar";
 import MenuButton from "./button/menu";
 import ThemeToggle from "./button/theme";
-import SearchBar from "./searchbar";
 import { ReactNode } from "react";
 import SidebarButton from "./sidebar";
 import NextTopLoader from "nextjs-toploader";
@@ -30,7 +29,6 @@ export default function Header({
         <div className="flex flex-row gap-2 items-center">
           <div className="hidden md:block"><JAvatar /></div>
           <div className="block md:hidden"><MenuButton /></div>
-          <SearchBar />
         </div>
 
         <Navbar />

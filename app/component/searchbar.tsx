@@ -48,9 +48,6 @@ export default function SearchBar() {
       value={mounted ? searchContent : ""}
       onChange={handleSearch}
       size="sm"
-      sx={{
-        maxWidth: 200,
-      }}
       startDecorator={<MdSearch />}
       endDecorator={
         <IconButton

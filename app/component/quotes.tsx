@@ -24,7 +24,7 @@ export default function Quotes({
 
   return (
     <>
-      <div className="w-96 sm:w-full text-center text-xl sm:text-2xl pb-8">
+      <div className="w-full sm:w-96 text-center text-xl sm:text-2xl pb-8">
         {quotes[index].content}
       </div>
       <div className="text-center text-md">

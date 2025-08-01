@@ -15,7 +15,7 @@ export default function Layout({
       <section className="page">
         {children}
 
-        <div className="hidden md:block sticky">
+        <div className="w-48 hidden md:block sticky">
           <RepositorySidebar />
         </div>
       </section>

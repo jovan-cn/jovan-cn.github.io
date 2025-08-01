@@ -3,6 +3,7 @@ import { getAllData } from "@/app/lib/data";
 import { IArticle } from "@/app/types/article";
 import { getLocale, getTranslations } from 'next-intl/server';
 import clsx from "clsx";
+import SearchBar from "@/app/component/searchbar";
 
 export default function Layout({
   children,
@@ -18,7 +19,7 @@ export default function Layout({
       <section className="page">
         {children}
 
-        <div className="hidden md:block sticky">
+        <div className="w-48 hidden md:block sticky">
           <Sidebar />
         </div>
       </section>
@@ -33,12 +34,15 @@ async function Sidebar() {
 
   return (
     <aside className={clsx(
-      "w-40 flex flex-col justify-center gap-2",
-      "circled p-2",
+      "w-full flex flex-col justify-center gap-2",
+      "px-2",
     )}>
-      <h3>{t('sidebar.title')}</h3>
-      <div>
-        {t('sidebar.count', {count: all.length})}
+      <SearchBar />
+      <div className="w-full circled p-2">
+        <h3>{t('sidebar.title')}</h3>
+        <div>
+          {t('sidebar.count', {count: all.length})}
+        </div>
       </div>
     </aside>
   )
