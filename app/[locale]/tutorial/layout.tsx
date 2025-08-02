@@ -1,7 +1,7 @@
 import { setRequestLocale } from "next-intl/server";
 import Header from "@/app/component/header";
 
-export default function Layout({
+export default async function Layout({
   children,
   params
 }: Readonly<{
