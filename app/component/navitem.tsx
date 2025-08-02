@@ -1,11 +1,10 @@
 'use client'
 
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname } from "@/i18n/routing";
 import { useTranslations } from 'next-intl';
 import ReactIcons from "@/app/lib/icons";
 import clsx from "clsx";
 import { INavItem } from "@/app/types";
-import { usePathname } from "@/i18n/navigation";
 
 
 export default function NavItem({
