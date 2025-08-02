@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 
   output: dev ? undefined : "export",
-  image: {
+  images: {
       unoptimized: dev ? false : true,
   },
 };

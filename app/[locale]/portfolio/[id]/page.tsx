@@ -1,20 +1,22 @@
+export const dynamic = 'force-static';
 import Title from "@/app/component/title";
-import { getAllData, getDataByID, getPortfolioByName } from "@/app/lib/data";
+import { getAllData, getDataByID } from "@/app/lib/data";
 import NotFound from "@/app/[locale]/not-found";
 import { IPortfolio } from "@/app/types/portfolio";
 import clsx from "clsx";
 import Mdx from "@/app/component/markdown/mdx/mdx";
 import { routing } from "@/i18n/routing";
-import { getLocale } from "next-intl/server";
 
 
 export default async function CPortfolio({
   params
 } : {
-  params: Promise<{id: string}>
+  params: Promise<{
+    locale: string,
+    id: string
+  }>
 }) {
-  const locale = await getLocale();
-  const { id } = await params;
+  const { locale, id } = await params;
   const data = await getDataByID("portfolio", locale, id);
 
   if (data === undefined) {
@@ -43,9 +45,10 @@ export async function generateStaticParams() {
   const list: IPortfolio[][] = await Promise.all(
     locales.map(l => getAllData("portfolio", l))
   );
-  return list.flatMap((pvec: IPortfolio[]) => 
+  return list.flatMap((pvec: IPortfolio[], index: number) => 
     pvec.map(p => ({
-      id: p.id,
+      locale: locales[index], // required
+      id: p.id.toString(),
     }))
   )
 }

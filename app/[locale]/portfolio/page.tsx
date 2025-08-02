@@ -1,3 +1,4 @@
+export const dynamic = 'force-static';
 import clsx from "clsx";
 import { getAllData} from "@/app/lib/data";
 import { IPortfolio } from "@/app/types/portfolio";

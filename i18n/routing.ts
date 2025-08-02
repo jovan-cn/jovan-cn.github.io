@@ -9,6 +9,8 @@ export const routing = defineRouting({
 
   // no prefix for the default locale
   // localePrefix: 'as-needed',
+  // static export require 'always'
   localePrefix: 'always',
   
+  localeDetection: false,
 });

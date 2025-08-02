@@ -1,3 +1,4 @@
+export const dynamic = 'force-static';
 import { getAllData } from "@/app/lib/data"
 import { IRepository } from "@/app/types/repository"
 import RepositoryList from "./repository-list";

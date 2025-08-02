@@ -6,13 +6,21 @@ import Clock from "@/app/component/clock";
 import Quotes from "@/app/component/quotes";
 import Social from "@/app/component/social";
 import Todo from "../component/todo";
-import { getLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 
 
 
-export default async function Home() {
-  const locale = await getLocale();
+export default async function Home({
+  params
+} : {
+  params: Promise<{
+    locale: string,
+  }>
+}) {
+  const { locale } = await params;
   const quotes: IQuote[] = await getAllData("quotes", locale);
+
+  setRequestLocale(locale);
 
   return (
     <div className="flex flex-col min-h-screen">

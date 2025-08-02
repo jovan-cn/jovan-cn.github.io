@@ -1,3 +1,4 @@
+export const dynamic = 'force-static';
 import { getAllData, getDataByID } from "@/app/lib/data";
 import { ITutorial } from "@/app/types/tutorial";
 import clsx from "clsx";
@@ -5,16 +6,17 @@ import Title from "@/app/component/title";
 import NotFound from "@/app/[locale]/not-found";
 import Mdx from "@/app/component/markdown/mdx/mdx";
 import { routing } from "@/i18n/routing";
-import { getLocale } from "next-intl/server";
 
 
 export default async function CTutorial({
   params
 } : {
-  params: Promise<{id: string}>
+  params: Promise<{
+    locale: string,
+    id: string
+  }>
 }) {
-  const locale = await getLocale();
-  const { id } = await params;
+  const { locale, id } = await params;
   const data = await getDataByID("tutorial", locale, id);
 
   if (data === undefined) {
@@ -44,9 +46,10 @@ export async function generateStaticParams() {
   const datas: ITutorial[][] = await Promise.all(
     locales.map(l => getAllData("tutorial", l))
   );
-  return datas.flatMap((tvec: ITutorial[]) =>
+  return datas.flatMap((tvec: ITutorial[], index: number) =>
     tvec.map(t => ({
-      id: t.id,
+      locale: locales[index],
+      id: t.id.toString(),
     }))
   )
 }

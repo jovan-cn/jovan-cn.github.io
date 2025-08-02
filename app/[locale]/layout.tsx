@@ -6,6 +6,7 @@ import ThemeProvider from "@/app/component/theme-provider";
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { routing } from '@/i18n/routing';
 import NotFound from "./not-found";
+import { setRequestLocale } from "next-intl/server";
 
 
 
@@ -38,6 +39,10 @@ export default async function RootLayout({
     NotFound();
   }
 
+  // Enable static rendering
+  // https://next-intl.dev/docs/getting-started/app-router/with-i18n-routing#static-rendering
+  setRequestLocale(locale);
+
   return (
     <html lang={locale}>
       <body className={`overflow-x-hidden`} >
@@ -51,4 +56,9 @@ export default async function RootLayout({
       </body>
     </html>
   );
+}
+
+// https://nextjs.org/docs/app/api-reference/functions/generate-static-params#generate-params-from-the-top-down
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({locale}));
 }

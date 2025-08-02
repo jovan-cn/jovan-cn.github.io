@@ -1,6 +1,7 @@
+export const dynamic = 'force-static';
 import IconLinker from "@/app/component/icon-linker";
 import Title from "@/app/component/title";
-import { getAllData, getDataByID, getRepositoryByName } from "@/app/lib/data";
+import { getAllData, getDataByID } from "@/app/lib/data";
 import NotFound from "@/app/[locale]/not-found";
 import { Lang, OuterLink } from "@/app/types";
 import { IRepository } from "@/app/types/repository";
@@ -9,16 +10,17 @@ import clsx from "clsx";
 import Mdx from "@/app/component/markdown/mdx/mdx";
 import ZoomImg from "@/app/component/markdown/mdx/image";
 import { routing } from "@/i18n/routing";
-import { getLocale } from "next-intl/server";
 
 
 export default async function CRepository({
   params
 } : {
-  params: Promise<{id: string}>
+  params: Promise<{
+    locale: string,
+    id: string
+  }>
 }) {
-  const locale = await getLocale();
-  const { id } = await params;
+  const { locale, id } = await params;
   const r = await getDataByID("repository", locale, id);
 
   if (r === undefined) {
@@ -93,8 +95,10 @@ export async function generateStaticParams() {
     locales.map(locale => getAllData("repository", locale))
   );
 
-  return repos.flatMap((rvec: IRepository[]) => 
+  return repos.flatMap((rvec: IRepository[], index: number) => 
     rvec.map(r => ({
-    id: r.id,
-  })))
+      locale: locales[index], // required
+      id: r.id.toString(),
+    }))
+  )
 }
