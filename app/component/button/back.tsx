@@ -1,6 +1,6 @@
 'use client'
 import { IconButton } from "@mui/joy";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/navigation";
 import { MdArrowBack } from "react-icons/md";
 
 export default function BackButton() {

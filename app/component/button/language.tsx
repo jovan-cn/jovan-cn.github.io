@@ -1,6 +1,6 @@
 'use client'
 
-import { usePathname, useRouter } from "@/i18n/routing";
+import { usePathname, useRouter } from "@/i18n/navigation";
 import { IconButton } from "@mui/joy"
 import { useLocale, useTranslations } from "next-intl";
 
