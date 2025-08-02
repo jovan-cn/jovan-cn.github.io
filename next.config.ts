@@ -6,9 +6,15 @@ import remarkGfm from 'remark-gfm';
 
 
 /** @type {import('next').NextConfig} */
+const dev = process.env.NODE_ENV !== "production";
 const nextConfig: NextConfig = {
   // Configure `pageExtensions` to include markdown and MDX files
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+
+  output: dev ? undefined : "export",
+  image: {
+      unoptimized: dev ? false : true,
+  },
 };
 
 const withNextIntl = createNextIntlPlugin();
