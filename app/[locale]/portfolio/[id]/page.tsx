@@ -6,6 +6,7 @@ import { IPortfolio } from "@/app/types/portfolio";
 import clsx from "clsx";
 import Mdx from "@/app/component/markdown/mdx/mdx";
 import { routing } from "@/i18n/routing";
+import { setRequestLocale } from "next-intl/server";
 
 
 export default async function CPortfolio({
@@ -22,6 +23,8 @@ export default async function CPortfolio({
   if (data === undefined) {
     return NotFound();
   }
+
+  setRequestLocale(locale);
 
   return (
     <div className={clsx("w-full flex flex-col justify-center gap-1")}>

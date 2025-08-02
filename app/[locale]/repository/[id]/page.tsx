@@ -10,6 +10,7 @@ import clsx from "clsx";
 import Mdx from "@/app/component/markdown/mdx/mdx";
 import ZoomImg from "@/app/component/markdown/mdx/image";
 import { routing } from "@/i18n/routing";
+import { setRequestLocale } from "next-intl/server";
 
 
 export default async function CRepository({
@@ -26,6 +27,8 @@ export default async function CRepository({
   if (r === undefined) {
     return NotFound();
   }
+
+  setRequestLocale(locale);
 
   return (
     <div className={clsx("flex flex-col justify-center gap-1")}>

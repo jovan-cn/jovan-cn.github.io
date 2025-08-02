@@ -6,6 +6,7 @@ import Title from "@/app/component/title";
 import NotFound from "@/app/[locale]/not-found";
 import Mdx from "@/app/component/markdown/mdx/mdx";
 import { routing } from "@/i18n/routing";
+import { setRequestLocale } from "next-intl/server";
 
 
 export default async function CTutorial({
@@ -22,6 +23,8 @@ export default async function CTutorial({
   if (data === undefined) {
     return NotFound();
   }
+
+  setRequestLocale(locale);
 
   return (
     <div className={clsx("flex flex-col justify-center gap-1 w-full")}>

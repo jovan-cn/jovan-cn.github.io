@@ -1,11 +1,11 @@
 import Header from "@/app/component/header";
 import { getAllData } from "@/app/lib/data";
 import { IArticle } from "@/app/types/article";
-import { getLocale, getTranslations } from 'next-intl/server';
+import { getLocale, getTranslations, setRequestLocale } from 'next-intl/server';
 import clsx from "clsx";
 import SearchBar from "@/app/component/searchbar";
 
-export default function Layout({
+export default async function Layout({
   children,
   params
 }: Readonly<{
@@ -14,6 +14,10 @@ export default function Layout({
     locale: string
   }>
 }>) {
+  const { locale } = await params;
+
+  // Enable static rendering
+  setRequestLocale(locale);
 
   return (
     <>

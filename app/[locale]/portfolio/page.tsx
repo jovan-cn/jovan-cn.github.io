@@ -8,11 +8,13 @@ import IconLinker from "@/app/component/icon-linker";
 import Link from "next/link";
 import { DynamicPath } from "@/app/lib";
 import Mdx from "@/app/component/markdown/mdx/mdx";
-import { getLocale } from "next-intl/server";
+import { getLocale, setRequestLocale } from "next-intl/server";
 
 export default async function PagePortfolio() {
   const locale = await getLocale();
   const datas: IPortfolio[] = await getAllData("portfolio", locale);
+
+  setRequestLocale(locale);
 
   return (
     <div className="container">

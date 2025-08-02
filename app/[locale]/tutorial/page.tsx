@@ -5,12 +5,21 @@ import { ITutorial } from "@/app/types/tutorial";
 import Link from "next/link";
 import { DynamicPath } from "@/app/lib";
 import { Chip } from "@mui/joy";
-import { getLocale } from "next-intl/server";
+import { setRequestLocale } from "next-intl/server";
 
 
-export default async function PageTutorial() {
-  const locale = await getLocale();
+export default async function PageTutorial( {
+  params
+} : {
+  params: Promise<{
+    locale: string,
+    id: string
+  }>
+}) {
+  const { locale } = await params;
   const datas: ITutorial[] = await getAllData("tutorial", locale);
+
+  setRequestLocale(locale);
 
   return (
     <div className="container">
