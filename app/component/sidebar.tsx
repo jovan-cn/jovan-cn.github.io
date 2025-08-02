@@ -18,7 +18,7 @@ export default function SidebarButton({
   return (
     <div className="md:hidden">
       <IconButton onClick={() => setOpen(!open)}>
-        <Icon className="icon" />
+        <Icon />
       </IconButton>
       <Drawer 
         open={open}

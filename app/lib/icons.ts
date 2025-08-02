@@ -4,6 +4,7 @@ import * as GiIcons from 'react-icons/gi';
 import * as IoIcons from 'react-icons/io5';
 import * as TfiIcons from "react-icons/tfi";
 import * as VscIcons from "react-icons/vsc";
+import { ComponentType } from 'react';
 
 
 const iconMap = {
@@ -15,6 +16,6 @@ const iconMap = {
   ...VscIcons,
 } as Record<string, React.ComponentType>;
 
-export default function ReactIcons(name: string) {
+export default function ReactIcons(name: string): ComponentType {
   return iconMap[name];
 }

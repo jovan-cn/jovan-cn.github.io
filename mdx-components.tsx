@@ -1,17 +1,31 @@
 import { Checkbox, Link } from '@mui/joy';
 import clsx from 'clsx';
 import type { MDXComponents } from 'mdx/types'
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { CopyCodeBlock } from '@/app/component/markdown/mdx/code';
 import ZoomImg from './app/component/markdown/mdx/image';
+
+type CheckboxProps = {
+  type: 'checkbox';
+  checked?: boolean;
+  disabled?: boolean;
+  label?: ReactNode;
+};
  
-const CustomLi = ({ children, className, ...props }) => {
+const CustomLi = ({
+  children,
+  className,
+  ...props
+}: {
+  children: ReactNode,
+  className?: string,
+}) => {
   const childrenArray = React.Children.toArray(children);
 
-  const findCheckboxAndContent = (nodes) => {
+  const findCheckboxAndContent = (nodes: ReactNode[]) => {
     if (nodes.length > 0) {
       const node = nodes[0];
-      if (React.isValidElement(node) && node.props?.type === "checkbox") {
+      if (React.isValidElement<CheckboxProps>(node) && node.props?.type === "checkbox") {
         const isChecked = node.props?.checked;
         const remainingNodes = nodes.slice(2);
         return { isChecked, remainingNodes };

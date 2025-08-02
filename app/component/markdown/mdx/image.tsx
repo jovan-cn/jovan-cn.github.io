@@ -14,9 +14,10 @@ export default function ZoomImg({
 }) {
   const [isZoomed, setIsZoomed] = useState(false);
 
-  const handleZoomChange = useCallback(shouldZoom => {
-    setIsZoomed(shouldZoom)
-  }, [])
+  const handleZoomChange = useCallback(
+    (shouldZoom: boolean) => {
+      setIsZoomed(shouldZoom)
+    }, []);
 
   return (
     <div className="w-full circled">

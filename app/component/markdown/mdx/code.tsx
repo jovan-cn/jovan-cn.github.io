@@ -7,7 +7,13 @@ import copy from 'copy-to-clipboard';
 import clsx from 'clsx';
 import { useColorScheme } from '@mui/joy';
 
-export const CopyCodeBlock = ({ children, className }) => {
+export const CopyCodeBlock = ({
+  children,
+  className 
+} : {
+  children: string,
+  className?: string,
+}) => {
   const { mode } = useColorScheme();
   const [copied, setCopied] = useState(false);
   const language = className?.replace(/language-/, '') || 'text';

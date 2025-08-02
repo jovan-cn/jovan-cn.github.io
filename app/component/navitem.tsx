@@ -31,7 +31,9 @@ export default function NavItem({
       "group relative transition-colors",
       isNavHighlight(path, item.to) && "text-teal-700 dark:text-teal-500",
     )}>
-      {Icon && <Icon className="icon" />}
+      <div className="icon">
+        {Icon && <Icon />}
+      </div>
       <span>{t(item.label)}</span>
 
       {/* underline */}

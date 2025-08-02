@@ -11,11 +11,11 @@ import { getLocale } from "next-intl/server";
 export default async function CPortfolio({
   params
 } : {
-  params: {id: string}
+  params: Promise<{id: string}>
 }) {
   const locale = await getLocale();
-  const name = decodeURIComponent(params.id);
-  const data = await getDataByID("portfolio", locale, name);
+  const { id } = await params;
+  const data = await getDataByID("portfolio", locale, id);
 
   if (data === undefined) {
     return NotFound();

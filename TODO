@@ -5,9 +5,9 @@
 - [x] mdx集成
 - [x] 统计看板
 - [x] i18n
+- [x] CICD
 - [ ] Google Analysis
 - [ ] RSS
-- [ ] CICD
 - [ ] tag 支持
 - [ ] 动画效果（明暗切换过渡）
 

@@ -16,6 +16,7 @@
     "@mui/joy": "^5.0.0-beta.52",
     "@next/mdx": "^15.4.2",
     "@types/mdx": "^2.0.13",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "axios": "^1.9.0",
     "clsx": "^2.1.1",
     "copy-to-clipboard": "^3.3.3",

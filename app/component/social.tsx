@@ -14,8 +14,8 @@ export default function Social() {
         const Icon = ReactIcons(s.icon);
         return (
           <Tooltip key={s.label} title={s.label}>
-            <Link href={s.value} target="_blank">
-              <Icon className="icon" />
+            <Link className="icon rounded-full" href={s.value} target="_blank">
+              <Icon />
             </Link>
           </Tooltip>
         )
