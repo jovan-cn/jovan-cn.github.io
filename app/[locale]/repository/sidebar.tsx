@@ -16,7 +16,7 @@ export default async function RepositorySidebar() {
       "px-2",
     )}>
       <SearchBar />
-      <div className="circled p-2">
+      <div className="w-full circled p-2">
         <h3>{t('sidebar.title')}</h3>
         <div>
           {t('sidebar.count', {count: repos.length})}

@@ -59,11 +59,16 @@
   }
 
   .page {
-    @apply max-w-3xl xl:max-w-4xl mx-auto flex justify-center gap-2 p-1;
+    /* overflow-x will destroy aside sticky */
+    @apply max-w-4xl mx-auto flex gap-2 p-1 ;
+  }
+
+  .page-side {
+    @apply w-48 h-full hidden md:block sticky top-[53px] ;
   }
 
   .container {
-    @apply lg:min-w-2xl;
+    @apply w-full;
   }
 
   .list {

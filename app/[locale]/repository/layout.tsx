@@ -23,9 +23,11 @@ export default async function Layout({
       </Header>
 
       <section className="page">
-        {children}
+        <div className="flex-1">
+          {children}
+        </div>
 
-        <div className="w-48 hidden md:block sticky">
+        <div className="page-side">
           <RepositorySidebar />
         </div>
       </section>
