@@ -18,8 +18,8 @@ jobs:
         with:
           command: upload sources
           config: .github/config/crowdin.yaml
-          env:
-            CROWDIN_API_TOKEN: ${{ secrets.CROWDIN_API_TOKEN }}
+        env:
+          CROWDIN_API_TOKEN: ${{ secrets.CROWDIN_API_TOKEN }}
 
       # step 2：trigger auto translate（optional）
       - name: Pre-translate
@@ -38,8 +38,8 @@ jobs:
         uses: crowdin/github-action@master
         with:
           command: download
-          env:
-            CROWDIN_API_TOKEN: ${{ secrets.CROWDIN_API_TOKEN }}
+        env:
+          CROWDIN_API_TOKEN: ${{ secrets.CROWDIN_API_TOKEN }}
 
       # step 5(optional): auto commit to github
       - name: Commit translations
