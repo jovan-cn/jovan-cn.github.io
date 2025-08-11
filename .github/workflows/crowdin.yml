@@ -17,6 +17,7 @@ jobs:
           pwd
           ls -la .github/config/
           cat .github/config/crowdin.yaml
+          ls -la /data/zh/
 
       # step 1. upload string to Crowdin
       - name: Upload sources
