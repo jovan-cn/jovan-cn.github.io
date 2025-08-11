@@ -15,9 +15,9 @@ jobs:
       - name: Validate config
         run: |
           pwd
-          ls -la .github/config/
+          ls -la
           cat .github/config/crowdin.yaml
-          ls -la /data/zh/
+          ls -la data/zh/
 
       # step 1. upload string to Crowdin
       - name: Upload sources
