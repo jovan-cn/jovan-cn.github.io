@@ -5,7 +5,7 @@ author: jwasham
 avatar: https://avatars.githubusercontent.com/u/3771963?s=48&v=4
 desc: This is my multi-month study plan for becoming a software engineer for a large company.
 cover: https://camo.githubusercontent.com/8c889e19270293b87b4569c4edb3a024d4a586a37d6529c74a9f26d276f364de/68747470733a2f2f64336a32706b6d6a74696e366f752e636c6f756466726f6e742e6e65742f636f64696e672d61742d7468652d7768697465626f6172642d73696c69636f6e2d76616c6c65792e706e67
-language: [C]
+language: [ C ]
 license: CC-BY-SA-4.0
 links:
   - text: github
