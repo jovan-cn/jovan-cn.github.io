@@ -23,7 +23,6 @@ jobs:
           cat .github/config/crowdin.yaml
           ls -la data/zh/
 
-      # step 1: upload string to Crowdin
       - name: crowdin action
         uses: crowdin/github-action@master
         with:
@@ -31,42 +30,14 @@ jobs:
           config: ${{ github.workspace }}/.github/config/crowdin.yaml
           upload_sources: true
           upload_translations: false
-          download_translations: false
-          #localization_branch_name: crowdin_translations
-          #create_pull_request: true
-          #pull_request_title: 'New Crowdin Translations'
-          #pull_request_body: 'New Crowdin translations by [Crowdin GH Action](https://github.com/crowdin/github-action)'
-          #pull_request_base_branch_name: 'master'
+          download_translations: true
+          auto_approve_imported: true
+          localization_branch_name: crowdin_translations
+          create_pull_request: true
+          pull_request_title: 'Auto Crowdin Translations'
+          pull_request_body: 'Auto Crowdin translations by [Crowdin GH Action](https://github.com/crowdin/github-action)'
+          pull_request_base_branch_name: 'master'
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
           CROWDIN_API_TOKEN: ${{ secrets.CROWDIN_API_TOKEN }}
-
-      # step 2：trigger auto translate（optional）
-      - name: Pre-translate
-        if: github.event_name == 'push'
-        run: |
-          curl -X POST \
-            -H "Content-type: application/json" \
-            -H "Authorization: Bearer ${{ secrets.CROWDIN_API_TOKEN }}" \
-            "https://api.crowdin.com/api/v2/projects/${{ secrets.CROWDIN_PROJECT_ID }}/pre-translations" \
-            -d '{"languageIds": ["en"], "method": "mt", "engineId": 1}'  # specific target language and machine translation, crowdin engine
-
-      # step 3：waiting for human audit（do it in Crowdin）
-
-      # step 4: checking periodly and download translations
-      - name: Download approved translations
-        uses: crowdin/github-action@master
-        with:
-          command: download
-          config: ${{ github.workspace }}/.github/config/crowdin.yaml
-        env:
-          CROWDIN_API_TOKEN: ${{ secrets.CROWDIN_API_TOKEN }}
-
-      # step 5(optional): auto commit to github
-      - name: Commit translations
-        run: |
-          git config --global user.name "i18n Bot"
-          git config --global user.email "i18n-bot@example.com"
-          git add data/
-          git diff --quiet || (git commit -m "[i18n] Update translations from Crowdin" && git push)
