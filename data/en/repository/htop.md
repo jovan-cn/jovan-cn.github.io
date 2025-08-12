@@ -11,15 +11,14 @@ links:
   - text: github
     url: https://github.com/htop-dev/htop
     icon: AiFillGithub
-  - text: official website
+  - text: 官网
     url: https://htop.dev/
     icon: https://htop.dev/images/htop.ico
 ---
 
+作者基于ncursors库实现了终端下交互式的进程查看器，不再是一个单纯的终端命令行程序，更像是一款产品，具备窗口、菜单、设置等产品级的设计。对于用户更加友好。
 
-The author has implemented an interactive process viewer for the terminal based on the ncursors library. It's no longer just a command-line program, but more like a product, complete with product-level design features like windows, menus, and settings. It's also more user-friendly.
+<h3><center>推荐理由</center></h3>
 
-<h3><center>Recommendations</center></h3>
-
-1. The code is elegant, making it a great project for learning C. You can learn how to implement object-oriented programming and cross-platform compatibility in C.
-2. The product design is comprehensive, and the author has elegantly implemented components like windows, panels, menus, and function bars through design patterns.
+1. 代码优雅，是学习 C 语言的好项目，可以了解 C 语言中如何实现面向对象编程、跨平台兼容
+2. 产品设计完善，且作者通过设计模式优雅的实现了窗口、面板、菜单、功能条等组件
