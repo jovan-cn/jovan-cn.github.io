@@ -1,11 +1,11 @@
 ---
 id: 1
 title: yraid
-desc: "运行于终端下的日历
+desc: "Calendar
 
-  - 依赖ncursors实现终端下图形界面
+  - Depends on ncursors to implement terminal graphics
 
-  - 支持交互式操作\n"
+  - supports interactive action\n"
 cover: https://cdnjson.com/images/2024/07/14/yraid.png
 language: [ c, ncursors, git ]
 links:
@@ -16,7 +16,7 @@ links:
 
 ![](https://cdnjson.com/images/2024/07/14/yraid.png)
 
-运行于终端下的日历
+Run calendar under the terminal
 
-- 依赖ncursors实现终端下图形界面
-- 支持交互式操作
+- Use ncursors to implement the bottom GUI
+- Support interactive actions
