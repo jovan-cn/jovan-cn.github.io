@@ -20,7 +20,7 @@ jobs:
           cat .github/config/crowdin.yaml
           ls -la data/zh/
 
-      # step 1. upload string to Crowdin
+      # step 1: upload string to Crowdin
       - name: crowdin action
         uses: crowdin/github-action@master
         with:
