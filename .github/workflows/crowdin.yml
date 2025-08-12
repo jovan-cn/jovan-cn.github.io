@@ -6,6 +6,9 @@ on:
     #paths:
     #  - 'data/zh/**'  # trigger by zh data pushing
 
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
 jobs:
   sync-translations:
     runs-on: ubuntu-latest
