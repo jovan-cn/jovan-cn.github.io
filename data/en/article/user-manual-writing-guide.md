@@ -1,43 +1,43 @@
 ---
 id: 1
-title: 用户手册编写指南
-abstract: 软件开发人员编写用户指引手册。
+title: User manual preparation guide
+abstract: Software developers prepare a user guide manual.
 author: Jovan
 cover: https://github.com
-tags: manual
+tags: Manual
 ---
 
-适用场景：软件开发人员编写用户指引手册。
+Use Scene：software developers to write a user guide manual.
 
-## 一、结构
+## Structure
 
-- 简介：[**必备**] [文件] 提供对产品和文档本身的总体的、扼要的说明
-- 快速上手：[**可选**] [文件] 如何最快速地使用产品
-- 入门篇：[**必备**] [目录] 又称“使用篇”，提供初级的使用教程
-    - 环境准备：[**必备**] [文件] 软件使用需要满足的前置条件
-    - 安装：[**可选**] [文件] 软件的安装方法
-    - 设置：[**必备**] [文件] 软件的设置
-- 进阶篇：[**可选**] [目录] 又称“开发篇”，提供中高级的开发教程
-- API：[**可选**] [目录|文件] 软件 API 的逐一介绍
-- FAQ：[**可选**] [文件] 常见问题解答
-- 附录：[**可选**] [目录] 不属于教程本身、但对阅读教程有帮助的内容
-    - 名词解释：[**可选**] [文件]
-    - 最佳实践：[**可选**] [文件]
-    - Troubleshooting：[**可选**] [文件] 故障处理
-    - ChangeLog：[**可选**] [文件] 版本说明
-    - Feedback：[**可选**] [文件] 反馈方式
+- Intro to：[**mandatory**] [文件] provides a general, brief description of products and documents themselves
+- Quick Start：[**optionary**] [文件] How best to use products
+- Start with：[**necessary**] [目录] also known as "Usage", providing primary usage tutorials
+    - Environment preparation：[**required**] [文件] Preconditions that need to be met for software usage
+    - Install：[**optionary**] [文件] software installation methods
+    - Set settings for：[**required**] [文件] software
+- Advanced：[**optionary**] [目录] also known as "Developing", offering middle- and advanced development tutorials
+- API：[**optionary**] [Directory|Files] Software API per presentation
+- FAQ：[**optionary**] [文件] Frequently asked questions
+- Appendix：[**optionary**] [目录] does not belong to the tutorial itself, but is helpful in reading the tutorial.
+    - Name explanation：[**optionary**] [文件]
+    - Best practices：[**optionary**] [文件]
+    - Troubleshooting：[**optionary**] [文件]
+    - ChangeLog：[**optionary**] version [文件]
+    - Feedback：[**optionary**] [文件]
 
-## 二、建议
+## Recommendations
 
-### 文件名
+### Filename
 
-- 文件名不得含有空格。
-- 必须使用半角字符。（所以中文不能用作文件名）
-- 文件名只用小写（除部分文件为了醒目，如README）
-- 多个单词时使用半角连接线`-`分隔
+- File name must not contain spaces.
+- Half-angle characters must be used.(So Chinese cannot be used as filename)
+- Filename is only lowercase (except for some files for visibility, such as README)
+- Use semi-corner connection `-` to separate multiple words
 
 ------
 
-> 特别说明：本文引自[阮一峰 -- 中文技术文档的写作规范](https://github.com/ruanyf/document-style-guide/tree/master)
+> Special note：quoted in [Nguyen 1 Peak - writing norm for Chinese technical documents] (https://github.com/ruanyf/document-style-guide/tree/master)
 
-更详细的规范可以阅读[Requirements for Chinese Text Layout 中文排版需求](https://w3c.github.io/clreq/)
+More detailed instructions can be read [Requirements for Chinese Text Layout Needs] (https://w3c.github.io/clreq/)

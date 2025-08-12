@@ -1,50 +1,50 @@
 ---
 id: 0
-title: git 操作
-abstract: 主要介绍 git 常用操作，备份本地文件夹和版本管理的好帮手。
+title: git operations
+abstract: Introduction of git regular actions, backup local folders and version management helpers.
 icon: material/git
 author: Jovan
 tags:
   - git
 ---
 
-### 1. 将当前文件夹初始化为git仓库
+### 1. Initiate the current folder into a git repository
 
 ```bash
-git init .
+git into.
 ```
 
-### 2. 保存当前路径文件
+### 2. Save current path file
 
 ```bash
 git add .
 ```
 
-### 3. 提交仓库变更
+### Submit changes to the warehouse
 
 ```bash
 git commit -m "init repository"
 ```
 
-### 4. 添加远端仓库链接
+### 4. Add remote repository link
 
 ```bash
-git remote add origin git@github.com:your-github-name/your-repository-name.git
+git remote origin git@github.com:your-github-name/your-repository-name.git
 ```
 
-### 5. 查看仓库源信息
+### 5. View repository source information
 
 ```bash
 git remote -v
 ```
 
-### 6. 设置主分支
+### 6. Set up main branch
 
 ```bash
-git branch -M master
+git ranch -M master
 ```
 
-### 7. 推送本地仓库至远端
+### 7. Push local repository to remote
 
 ```bash
 git push -u origin master
