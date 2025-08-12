@@ -3,8 +3,8 @@ name: crowdin
 on:
   push:
     branches: [ master ]
-    paths:
-      - 'data/zh/**'  # trigger by zh data pushing
+    #paths:
+    #  - 'data/zh/**'  # trigger by zh data pushing
 
 jobs:
   sync-translations:
