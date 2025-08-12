@@ -1,6 +1,6 @@
 project_id_env: "CROWDIN_PROJECT_ID"  # endwith _env
 api_token_env: "CROWDIN_API_TOKEN"
-base_path: "."  # root
+base_path: "../../"  # root
 
 preserve_hierarchy: true
 
